@@ -1,0 +1,102 @@
+html, body {
+  height: 100%;
+}
+
+.wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto $footer-height*-1; /* the bottom margin is the negative value of the footer's height */
+}
+.push {
+  height: $footer-height; /* .push must be the same height as .footer */
+}
+
+nav.navbar#header {
+  height: 64px;
+  background: $color-white;
+  @include box-shadow(0px -10px 20px 6px rgba(20, 20, 20, 0.18));
+
+  .navbar-header {
+    @include size(150px, 64px);
+
+    .navbar-brand {
+      padding-top: 0;
+      margin-top: 11px;
+    }
+
+  }
+
+  .holder-title {
+    @include calc(width, "100% - 300px");
+    float: left;
+    padding: 22px 0px;
+
+    .title {
+      font-size: 14px;
+      font-weight: bold;
+      font-family: $font-open-sans;
+      color: $color-black;
+      text-transform: uppercase;
+      display: inline-block;
+      position: relative;
+
+      .icon-arrow-trend {
+        position: absolute;
+        top: 3px;
+        left: -32px;
+      }
+    }
+  }
+
+  ul.nav.navbar-nav {
+    float: right;
+    width: 150px;
+
+    li a {
+      font-size: 14px;
+      font-weight: bold;
+      font-family: $font-open-sans;
+      color: $color-black;
+      text-transform: uppercase;
+      padding: 22px 10px;
+    }
+  }
+}
+
+
+footer#footer {
+  background: $color-dark-blue;
+  height: 194px;
+
+  .links {
+    position: relative;
+    padding-left: 107px;
+    padding-top: 89px;
+    color: #8c8989;
+    font-family: $font-open-sans;
+    font-size: 12px;
+
+    a {
+      color: $color-white;
+      font-family: $font-open-sans;
+      font-size: 12px;
+      margin-right: 10px;
+    }
+
+    .logo-link {
+      position: absolute;
+      top: 75px;
+      left: 0;
+    }
+  }
+
+  .socials {
+    padding-top: 85px;
+    text-align: right;
+
+    a {
+      margin-right: 9px;
+    }
+  }
+}

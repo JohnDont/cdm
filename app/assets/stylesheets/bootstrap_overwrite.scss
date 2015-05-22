@@ -1,0 +1,30 @@
+// Fonts import
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800);
+
+// Project variables
+$footer-height: 194px;
+
+$font-open-sans: 'Open Sans', sans-serif;
+
+$color-white: #fff;
+$color-black: #333333;
+$color-light-blue: #44eaff;
+$color-dark-blue: #090e20;
+
+// Mixins
+@mixin box-shadow ($h, $v, $blur, $spread, $color ) {
+  -moz-box-shadow:    $h $v $blur $spread $color;
+  -webkit-box-shadow: $h $v $blur $spread $color;
+  box-shadow:         $h $v $blur $spread $color;
+}
+
+@mixin icon ($image, $width, $height) {
+  width: $width;
+  height: $height;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-position: center;
+  @include retina-image($image, $width $height);
+}
+
+// Bootstrap overwrite

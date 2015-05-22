@@ -1,0 +1,8 @@
+Questions:
+
+1. On the psd there are x2 dimensions, this is because of the preview of the retina or you want this to be the actual size of the elements. Example:
+The header line has 128px height which is quite a lot considering the content of this element. Do you mean that the header (and all other elements dimmensions) must be devided by 2 - will become 64px?
+ANS: Yes
+
+2. Is the header going to be fixed to top or will leave the screen after scroll?
+ANS: Yes

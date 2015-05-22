@@ -1,0 +1,30 @@
+.logo {
+  @include icon("logo", 77px, 41px);
+}
+
+.icon {
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  &.icon-arrow-trend {
+    @include icon("icons/arrow-trend", 22px, 13px);
+  }
+
+  &.icon-play-big {
+    @include icon("icons/play-big", 78px, 94px);
+  }
+
+  &.icon-facebook-white {
+    @include icon("icons/facebook-white", 24px, 24px);
+  }
+
+  &.icon-twitter-white {
+    @include icon("icons/twitter-white", 24px, 24px);
+  }
+
+  &.icon-instagram-white {
+    @include icon("icons/instagram-white", 24px, 24px);
+  }
+}
+
