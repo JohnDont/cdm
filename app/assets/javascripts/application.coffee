@@ -3,6 +3,9 @@
 #= require turbolinks
 #= require bootstrap-sprockets
 
+# Vendor libs
+#= require swiper.jquery.min
+
 #= require_tree .
 
 $(document).ready ->

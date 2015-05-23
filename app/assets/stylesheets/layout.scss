@@ -2,9 +2,14 @@ html, body {
   height: 100%;
 }
 
+body {
+  padding-top: $header-height;
+}
+
+
 .wrapper {
   min-height: 100%;
-  height: auto !important;
+  // height: auto !important;
   height: 100%;
   margin: 0 auto $footer-height*-1; /* the bottom margin is the negative value of the footer's height */
 }
@@ -13,12 +18,12 @@ html, body {
 }
 
 nav.navbar#header {
-  height: 64px;
+  height: $header-height;
   background: $color-white;
   @include box-shadow(0px -10px 20px 6px rgba(20, 20, 20, 0.18));
 
   .navbar-header {
-    @include size(150px, 64px);
+    @include size(150px, $header-height);
 
     .navbar-brand {
       padding-top: 0;

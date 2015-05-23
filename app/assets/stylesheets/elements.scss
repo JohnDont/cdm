@@ -15,6 +15,14 @@
     @include icon("icons/play-big", 78px, 94px);
   }
 
+  &.icon-star-big {
+    @include icon("icons/star-big", 93px, 87px);
+  }
+
+  &.icon-share-big {
+    @include icon("icons/share-big", 89px, 89px);
+  }
+
   &.icon-facebook-white {
     @include icon("icons/facebook-white", 24px, 24px);
   }
@@ -25,6 +33,15 @@
 
   &.icon-instagram-white {
     @include icon("icons/instagram-white", 24px, 24px);
+  }
+
+  &.icon-arrow-slider-right {
+    @include icon("icons/arrow-slider", 13px, 24px);
+  }
+
+  &.icon-arrow-slider-left {
+    @include icon("icons/arrow-slider", 13px, 24px);
+    @include transform(rotate(-180deg));
   }
 }
 

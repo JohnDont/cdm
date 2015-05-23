@@ -1,7 +1,107 @@
-body {
-  padding-top: 50px;
-}
 .starter-template {
   padding: 40px 15px;
   text-align: center;
+}
+
+.swiper-container {
+  width: 100%;
+  @include calc(height, "100% - #{$footer-height}");
+  overflow: hidden;
+
+  .swiper-slide {
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    .holder-icon {
+      margin-top: 60px;
+    }
+
+    h1 {
+      font-family: $font-open-sans;
+      font-size: 43px;
+      font-weight: bold;
+      letter-spacing: 12px;
+      color: $color-white;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      font-family: $font-open-sans;
+      font-size: 22px;
+      font-weight: lighter;
+      line-height: 30px;
+      color: $color-white;
+
+      span {
+        display: inline-block;
+        width: 440px;
+      }
+    }
+
+    .holder-border {
+      margin: 50px 0;
+
+      .border {
+        background-color: $color-white;
+        width: 67px;
+        height: 5px;
+        display: inline-block;
+      }
+    }
+
+    .holder-facebook-connect {
+      margin-top: 50px;
+      padding: 23px 38px;
+
+      a.facebook-connect {
+        border: 3px solid $color-white;
+        padding: 20px 35px;
+        font-family: $font-open-sans;
+        font-size: 14px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: $color-white;
+      }
+    }
+
+    .alt-hint {
+      margin-top: 10px;
+      font-family: $font-open-sans;
+      font-size: 12px;
+      color: $color-white;
+    }
+
+    &.uncover {
+      background-image: url(image-path('slider/uncover.jpeg'));
+    }
+
+    &.rate {
+      background-image: url(image-path('slider/rate.jpeg'));
+    }
+
+    &.share {
+      background-image: url(image-path('slider/share.jpeg'));
+    }
+
+
+  }
+
+  .swiper-button-prev, .swiper-button-next {
+    background: rgba(8, 0, 16, 0.5);
+    @include size(63px, 63px);
+
+    .icon {
+      position: absolute;
+      top: 19px;
+      left: 25px;
+    }
+  }
+
+  .swiper-button-prev {
+    left: 0;
+  }
+
+  .swiper-button-next {
+    right: 0;
+  }
 }

@@ -4,3 +4,13 @@
 
 $(document).ready ->
   doc = $(document)
+
+  mySwiper = new Swiper('.swiper-container',
+    loop: true
+    keyboardControl: true
+    nextButton: '.swiper-button-next'
+    prevButton: '.swiper-button-prev')
+
+
+$(window).resize ->
+

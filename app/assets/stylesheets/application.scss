@@ -3,8 +3,11 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "swiper.min";
 
 @import "elements";
 @import "layout";
 
 @import "welcome";
+
+@import "responsive";
