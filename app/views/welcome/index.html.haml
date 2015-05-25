@@ -1,54 +1,6 @@
-.swiper-container
-  / Additional required wrapper
-  .swiper-wrapper
-    / Slides
-    .swiper-slide.uncover
-      .holder-icon.text-center
-        %i.icon.icon-play-big
-      %h1.text-center Uncover
-      %h2.text-center
-        %span
-          The latest new
-          %strong Caribbean Dance Music
-          using our platform
-      .holder-border.text-center
-        .border
-      .holder-facebook-connect.text-center
-        = link_to 'Connect with Facebook', '#', class: 'facebook-connect'
-      .alt-hint.text-center Or Sign up with your email address
-    .swiper-slide.rate
-      .holder-icon.text-center
-        %i.icon.icon-star-big
-      %h1.text-center Rate
-      %h2.text-center
-        %span
-          %strong Vote by liking
-          your favourite music and artists that are trending
-      .holder-border.text-center
-        .border
-      .holder-facebook-connect.text-center
-        = link_to 'Connect with Facebook', '#', class: 'facebook-connect'
-      .alt-hint.text-center Or Sign up with your email address
-    .swiper-slide.share
-      .holder-icon.text-center
-        %i.icon.icon-star-big
-      %h1.text-center Share
-      %h2.text-center
-        %span
-          all that your
-          %strong discover
-          with friends
-          %br
-          on social media
-      .holder-border.text-center
-        .border
-      .holder-facebook-connect.text-center
-        = link_to 'Connect with Facebook', '#', class: 'facebook-connect'
-      .alt-hint.text-center Or Sign up with your email address
+- unless user_signed_in?
+  = content_for :slider do
+    = render partial: 'welcome/slider'
 
-
-  .swiper-button-prev
-    %i.icon.icon-arrow-slider-left
-  .swiper-button-next
-    %i.icon.icon-arrow-slider-right
-
+- else
+  welcome
