@@ -152,17 +152,28 @@
       margin: 20px 0 10px;
     }
 
-    .form-inputs .input{
+    .form-inputs {
       margin: 20px 0;
+      .input{
+        margin: 20px 0;
 
-      span.error {
-        color: $brand-danger;
-      }
+        span.error {
+          color: $brand-danger;
+        }
 
-      // Checkbox
-      &.boolean label {
-        padding-left: 20px;
+        // Checkbox
+        &.boolean label {
+          padding-left: 20px;
+        }
       }
+    }
+
+    .form-actions {
+      margin: 20px 0;
+    }
+
+    .holder-gender label{
+      margin: 0 5px;
     }
 
     input {
