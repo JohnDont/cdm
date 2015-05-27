@@ -3,5 +3,5 @@
     = render partial: 'welcome/slider'
 
 - else
-  .fb-like{"data-share" => "true", "data-show-faces" => "true", "data-width" => "450"}
+  = image_tag current_user.avatar.thumb
 

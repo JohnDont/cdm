@@ -13,4 +13,14 @@ $(document).ready ->
 
 
 $(window).resize ->
+  height = $(window).height() - $("#footer").height() - $("#header").height()
+  width = $(window).width()
+  $('.swiper-container, .swiper-slide').height height
+  $('.swiper-container, .swiper-slide').width width
+  #Add reInit, because jQuery's resize event handler may occur earlier than Swiper's one
+  swiper.reInit()
+  return
+
+$(window).resize()
+
 

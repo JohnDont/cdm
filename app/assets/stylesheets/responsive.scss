@@ -1,17 +1,5 @@
 @media (max-height: 800px) {
-  footer#footer {
-    height: $footer-height-min;
-
-    .links { padding-top: 41px; }
-    .links .logo-link { top: 27px }
-    .socials { padding-top: 37px }
-  }
-
-  .wrapper { margin: 0 auto $footer-height-min*-1; }
-  .push { height: $footer-height-min; }
   .swiper-container {
-    @include calc(height, "100% - #{$footer-height-min}");
-
     .swiper-slide .holder-border { margin: 30px 0; }
     .swiper-slide .holder-facebook-connect { margin-top: 30px; }
   }

@@ -3,6 +3,8 @@
     %h2 Sign up
     = f.error_notification
 
+    = devise_error_messages!
+
     - unless session["devise.facebook_data"]
       = link_to user_omniauth_authorize_path(:facebook), class: 'facebook-sign-in' do
         %span.text
@@ -15,7 +17,7 @@
       = f.input :email, required: true, label: false, placeholder: "Email"
       = f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @validatable), label: false, placeholder: "Password"
       .holder-gender
-        = f.collection_radio_buttons :gender, [[0, 'Male'] ,[1, 'Female']], :first, :last
+        = f.collection_radio_buttons :gender, [[:male, 'Male'] ,[:female, 'Female']], :first, :last
     .form-actions
       = f.button :submit, "Sign up"
 

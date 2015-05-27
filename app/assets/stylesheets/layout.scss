@@ -12,7 +12,7 @@ body {
 
 .wrapper {
   min-height: 100%;
-  // height: auto !important;
+  height: auto !important;
   height: 100%;
   margin: 0 auto $footer-height*-1; /* the bottom margin is the negative value of the footer's height */
 }
@@ -75,12 +75,12 @@ nav.navbar#header {
 
 footer#footer {
   background: $color-dark-blue;
-  height: 194px;
+  height: $footer-height;
 
   .links {
     position: relative;
     padding-left: 107px;
-    padding-top: 89px;
+    padding-top: 41px;
     color: #8c8989;
     font-family: $font-open-sans;
     font-size: 12px;
@@ -94,13 +94,13 @@ footer#footer {
 
     .logo-link {
       position: absolute;
-      top: 75px;
+      top: 27px;
       left: 0;
     }
   }
 
   .socials {
-    padding-top: 85px;
+    padding-top: 37px;
     text-align: right;
 
     a {
