@@ -15,6 +15,7 @@ gem 'jquery-rails'
 gem 'sass-rails', '~> 5.0'
 gem 'simple_form'
 gem 'turbolinks'
+gem 'omniauth-facebook'
 gem 'uglifier', '>= 1.3.0'
 
 

@@ -170,6 +170,16 @@
 
     .form-actions {
       margin: 20px 0;
+
+      .cancel-link {
+        margin-top: 10px;
+
+        a {
+          color: $color-blue;
+          font-family: $font-open-sans;
+          font-size: 12px;
+        }
+      }
     }
 
     .holder-gender label{
@@ -202,6 +212,28 @@
         color: $color-white;
         text-transform: uppercase;
       }
+    }
+  }
+
+  a.facebook-sign-in {
+    background-color: #1b49bd;
+    display: block;
+    padding: 22px 0;
+    font-family: $font-open-sans;
+    font-size: 15px;
+    font-weight: 500;
+    color: $color-white;
+    text-align: center;
+    text-decoration: none;
+
+    span.text {
+      position: relative;
+    }
+
+    .icon-fb {
+      position: absolute;
+      top: -3px;
+      left: -20px;
     }
   }
 }

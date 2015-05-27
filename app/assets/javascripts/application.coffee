@@ -6,7 +6,9 @@
 # Vendor libs
 #= require swiper.jquery.min
 
-#= require_tree .
+#= require social
+#= require welcome
 
 $(document).ready ->
   doc = $(document)
+

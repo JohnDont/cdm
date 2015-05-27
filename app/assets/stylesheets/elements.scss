@@ -43,5 +43,9 @@
     @include icon("icons/arrow-slider", 13px, 24px);
     @include transform(rotate(-180deg));
   }
+
+  &.icon-fb {
+    @include icon("icons/fb", 12px, 24px);
+  }
 }
 
