@@ -29,7 +29,7 @@ $color-light-blue: #44eaff;
   display: inline-block;
   background-repeat: no-repeat;
   background-position: center;
-  @include retina-image($image, $width $height);
+  @include retina-image($image, $width $height, $asset-pipeline: true);
 }
 
 @mixin placeholder {
