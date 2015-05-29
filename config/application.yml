@@ -1,0 +1,8 @@
+development:
+  facebook_app_id: "902409573131366"
+  facebook_secret: "8605a84f7ee996e42decbeea0cf60bdc"
+
+production:
+  facebook_app_id: "903172893055034"
+  facebook_secret: "76aa9528e382e27682f07dffc0086dc2"
+
