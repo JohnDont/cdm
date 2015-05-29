@@ -16,7 +16,7 @@
   %body{class: body_class}
     .wrapper
       %nav.navbar.navbar-default.navbar-fixed-top#header
-        .container
+        .container.main-container
           .navbar-header
             %button.navbar-toggle.collapsed{"aria-controls" => "navbar", "aria-expanded" => "false", "data-target" => "#navbar", "data-toggle" => "collapse", :type => "button"}
               %span.sr-only Toggle navigation
@@ -25,26 +25,32 @@
               %span.icon-bar
             = link_to root_path, class: 'navbar-brand' do
               %i.logo
+          .holder-title.text-center
+            .title
+              %i.icon.icon-arrow-trend
+              Most Popular
           #navbar.collapse.navbar-collapse
-            .holder-title.text-center
-              .title
-                %i.icon.icon-arrow-trend
-                Most Popular
             %ul.nav.navbar-nav
               - if user_signed_in?
-                %li= link_to "Logout", destroy_user_session_path
+                %li.upload= link_to "Upload", "#"
               - elsif !user_signed_in? and !devise_controller?
                 %li= link_to "Sign Up", new_user_registration_path, data: {target: "#modal-sign-up", toggle: :modal}, remote: true
                 %li= link_to "Login", new_user_session_path, data: {target: "#modal-sign-in", toggle: :modal}, remote: true
               - else
                 %li= link_to "Sign Up", new_user_registration_path
                 %li= link_to "Login", new_user_session_path
+            - if user_signed_in?
+              .user-info
+                %span.avatar= image_tag current_user.avatar.thumb
+                = current_user.first_name
+                %ul
+                  %li= link_to "Logout", destroy_user_session_path
 
       -# %p.notice= notice
       -# %p.alert= alert
       = yield :slider
 
-      .container
+      #content
         = yield
 
       .push

@@ -9,6 +9,14 @@ class User < ActiveRecord::Base
 
   mount_uploader :avatar, AvatarUploader
 
+  def first_name
+    full_name.split(' ').first
+  end
+
+  def last_name
+    full_name.split(' ').last
+  end
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email

@@ -3,5 +3,53 @@
     = render partial: 'welcome/slider'
 
 - else
-  = image_tag current_user.avatar.thumb
+  .container
+    .row
+      .col-xs-12
+        .music-charts
+          = link_to "Latest Music", "#", class: 'cdm-btn'
+          = link_to "Top Charts", "#", class: 'cdm-btn active'
+    .row.m-t-20
+      - 6.times do
+        .col-xs-12.col-sm-6.col-md-4
+          %article.music-item
+            %header.header{style: "background-image: url(#{image_path('sample/gallery/'+ (1+rand(3)).to_s + '.png')});"}
+              .overlay
+                %span.heart
+                  = link_to '#' do
+                    %i.icon.icon-heart-white-circle
+                %span.play
+                  = link_to '#' do
+                    %i.icon.icon-play-white-circle
+                %span.share
+                  = link_to '#' do
+                    %i.icon.icon-share-white-circle
+
+            %section.details
+              .title
+                Truck on D Road
+              .p.description
+                This is
+                = link_to "#Montreal", "#"
+                based
+                = link_to "#MatthewChaim’s", "#"
+                debut song release — the first track of the
+                = link_to "#She", "#"
+                EP, set to drop late Summer 2015.
+              .user-info.m-t-20
+                .avatar= image_tag "sample/user/#{1+rand(6)}.jpg"
+                by
+                %span.username Andy
+                in CDM
+                .time
+                  2 days ago
+              %hr
+
+            %footer.footer
+              = link_to '#', class: 'cdm-btn play m-r-10' do
+                %i.icon.icon-play-grey
+                Play
+              = 20+rand(600)
+              plays
+
 

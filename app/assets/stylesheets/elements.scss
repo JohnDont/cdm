@@ -47,5 +47,182 @@
   &.icon-fb {
     @include icon("icons/fb", 12px, 24px);
   }
+
+  &.icon-heart-white-circle {
+    @include icon("icons/heart-white-circle", 50px, 50px);
+  }
+
+  &.icon-share-white-circle {
+    @include icon("icons/share-white-circle", 50px, 50px);
+  }
+
+  &.icon-play-white-circle {
+    @include icon("icons/play-white-circle", 63px, 63px);
+  }
+
+  &.icon-play-grey {
+    @include icon("icons/play-grey", 17px, 17px);
+  }
+}
+
+.cdm-btn {
+  display: inline-block;
+  border: 1px solid #dcdcdc;
+  @include border-top-radius(4px);
+  @include border-bottom-radius(4px);
+  color: $color-dark-grey;
+  font-weight: 600;
+  padding: 5px 10px;
+  text-decoration: none;
+  @include transition(border-color 0.3s ease-in-out);
+
+  &:hover {
+    border-color: $color-dark-grey;
+    text-decoration: none;
+    color: $color-dark-grey;
+  }
+
+  &.active {
+    color: $color-white;
+    background-color: $color-blue;
+    border-color: $color-blue;
+
+    &:hover {
+      border-color: $color-blue;
+    }
+  }
+}
+
+article.music-item {
+  margin: 10px 0;
+
+  header.header {
+    // background-image: url(image_path('sample/gallery/1.png'));
+    background-size: cover;
+    height: 206px;
+
+    .overlay {
+      height: 100%;
+      background-color: rgba(0,0,0,0.5);
+      text-align: center;
+      padding-top: 70px;
+      opacity: 0;
+      @include transition(opacity 0.3s ease-in-out);
+
+      &:hover {
+        opacity: 1;
+      }
+
+      span {
+        display: inline-block;
+        @include size(63px, 63px);
+        position: relative;
+        @include transition(transform 0.05s ease-in-out);
+
+        .icon:not(.icon-play-white-circle) {
+          position: absolute;
+          top: 6px;
+          left: 6px;
+        }
+
+        &:hover {
+          @include transform(scale(1.1));
+        }
+      }
+    }
+  }
+
+  section.details {
+    padding: 10px;
+    border: 1px solid #e1e1e1;
+    border-top: none;
+    border-bottom: none;
+
+    .title {
+      font-family: $font-open-sans;
+      font-size: 18px;
+      font-weight: 600;
+      color: $color-black;
+      margin: 10px 0;
+    }
+
+    .description, .description a {
+      font-family: $font-pt-sans;
+      font-size: 13px;
+      font-weight: normal;
+      color: #747474;
+
+      a {
+        color: $color-blue;
+      }
+    }
+
+    .user-info {
+      position: relative;
+      min-height: 50px;
+      padding-left: 60px;
+      padding-top: 7px;
+      font-family: $font-pt-sans;
+      font-size: 14px;
+      font-weight: normal;
+      color: $color-dark-grey;
+
+      span.username {
+        color: $color-blue;
+      }
+
+      .time {
+        font-size: 12px;
+        color: #b7b7b7;
+      }
+
+
+      .avatar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        @include size(50px, 50px);
+
+        img {
+          @include size(50px, 50px);
+          @include border-top-radius(25px);
+          @include border-bottom-radius(25px);
+          @include transition(transform 0.05s ease-in-out);
+        }
+
+        &:hover img {
+          @include transform(scale(1.2));
+        }
+      }
+    }
+
+    hr {
+      border-color: #efefef;
+      margin-bottom: 10px;
+    }
+  }
+
+  footer.footer {
+    padding: 10px;
+    padding-top: 0;
+    border: 1px solid #e1e1e1;
+    border-top: none;
+
+    font-family: $font-open-sans;
+    font-size: 16px;
+    font-weight: normal;
+    color: $color-dark-grey;
+
+    a.play {
+      position: relative;
+      padding-left: 32px;
+
+      i.icon {
+        position: absolute;
+        top: 8px;
+        left: 10px;
+      }
+    }
+  }
 }
 
