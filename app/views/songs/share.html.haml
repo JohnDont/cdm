@@ -1,0 +1,27 @@
+.holder-share
+  %h2 Publish to my playlist
+
+  .holder-image
+    = image_tag @song.image.list
+
+  .title.m-t-30
+    = @song.title
+
+  .holder-share-buttons.m-t-30
+    = link_to "javascript: void(0)", class: 'share-facebook', onclick: "window.open('#{fb_share_link(@song.url)}','sharer','toolbar=0,status=0,width=548,height=325');" do
+      %i
+      Share On Facebook
+
+    = link_to '#', class: 'share-twitter', onclick: "window.open('#{tw_share_link(@song.url)}','sharer','toolbar=0,status=0,width=548,height=325');" do
+      %i
+      Share on Twitter
+
+
+  %form
+    .form-inputs
+      %span.hint Share Links
+      %input{name: :url, type: :url, value: @song.url}/
+
+
+  .text-right.m-t-30
+    = link_to 'Done', '#', class: 'btn-done', "data-dismiss" => "modal"

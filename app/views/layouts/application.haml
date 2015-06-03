@@ -32,7 +32,7 @@
           #navbar.collapse.navbar-collapse
             %ul.nav.navbar-nav
               - if user_signed_in?
-                %li.upload= link_to "Upload", "#"
+                %li.upload= link_to "Upload", new_song_path, remote: true
               - elsif !user_signed_in? and !devise_controller?
                 %li= link_to "Sign Up", new_user_registration_path, data: {target: "#modal-sign-up", toggle: :modal}, remote: true
                 %li= link_to "Login", new_user_session_path, data: {target: "#modal-sign-in", toggle: :modal}, remote: true
@@ -51,7 +51,8 @@
       = yield :slider
 
       #content
-        = yield
+        .container
+          = yield
 
       .push
     %footer#footer
@@ -72,9 +73,12 @@
                 %i.icon.icon-twitter-white
               = link_to '#' do
                 %i.icon.icon-instagram-white
+
     - unless user_signed_in?
       = render partial: 'application/modal_sign_up'
       = render partial: 'application/modal_sign_in'
+    - else
+      = render partial: 'application/modal_upload'
 
     #fb-root
 

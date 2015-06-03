@@ -18,4 +18,12 @@ module ApplicationHelper
   def devise_mapping
     @devise_mapping ||= Devise.mappings[:user]
   end
+
+  def fb_share_link url
+    "https://www.facebook.com/sharer/sharer.php?u=#{url}&app_id=#{Figaro.env.facebook_app_id}"
+  end
+
+  def tw_share_link url
+    "https://twitter.com/intent/tweet?url=#{url}"
+  end
 end

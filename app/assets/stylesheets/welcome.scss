@@ -135,8 +135,10 @@
 #modal-sign-up {
 }
 
-.modal .holder-devise-form form {
-  width: auto;
+.modal {
+  .holder-devise-form form, .holder-share {
+    width: auto;
+  }
 }
 
 .holder-devise-form {
@@ -153,17 +155,17 @@
     }
   }
 
+  h2 {
+    font-family: $font-open-sans;
+    font-size: 18px;
+    font-weight: bold;
+    color: $color-black;
+    text-transform: uppercase;
+    margin: 20px 0 10px;
+  }
+
   form {
     width: 463px;
-
-    h2 {
-      font-family: $font-open-sans;
-      font-size: 18px;
-      font-weight: bold;
-      color: $color-black;
-      text-transform: uppercase;
-      margin: 20px 0 10px;
-    }
 
     .form-inputs {
       margin: 20px 0;
@@ -200,7 +202,7 @@
     }
 
     input {
-      &[type=text], &[type=email], &[type=password] {
+      &[type=text], &[type=email], &[type=password], &[type=url] {
         height: 45px;
         width: 100%;
         border: 1px solid $color-grey;
@@ -256,5 +258,84 @@ body.page-welcome-index {
     a.cdm-btn {
       text-transform: uppercase;
     }
+  }
+}
+
+.holder-upload-form {
+  @extend .holder-devise-form;
+
+  input {
+    @include placeholder {
+      color: $color-dark-grey !important;
+    }
+  }
+
+  span.hint {
+    color: $color-dark-grey;
+    font-family: $font-open-sans;
+    font-size: 12px;
+
+    i {
+      color: $color-blue;
+    }
+  }
+
+  form .form-inputs .input {
+    margin-top: 5px;
+  }
+}
+
+.holder-share {
+  @extend .holder-devise-form;
+  width: 463px;
+
+  .holder-image {
+    img {
+      // @include size(360px, 206px);
+      width: 100%;
+    }
+  }
+
+  .title {
+    font-family: $font-open-sans;
+    font-size: 18px;
+    color: $color-dark-grey;
+  }
+
+  .holder-share-buttons {
+    a, div, a.pluginShareButtonLink {
+      font-family: $font-open-sans;
+      font-size: 17px;
+      font-weight: 400;
+      color: $color-white;
+      padding: 10px 20px;
+      display: inline-block;
+
+      &.share-facebook {
+        background-color: #2e4b93;
+        margin-right: 10px;
+      }
+
+      &.share-twitter {
+        background-color: #00bdef;
+      }
+    }
+  }
+
+  a.btn-done {
+    display: inline-block;
+    background-color: $color-blue;
+    @include border-top-radius(0);
+    @include border-bottom-radius(0);
+    padding: 10px 20px;
+    font-family: $font-open-sans;
+    font-size: 16px;
+    color: $color-white;
+  }
+
+  span.hint {
+    color: $color-dark-grey;
+    font-family: $font-open-sans;
+    font-size: 12px;
   }
 }

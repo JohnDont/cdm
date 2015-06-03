@@ -1,0 +1,12 @@
+.holder-upload-form
+  = simple_form_for(song, remote: true) do |f|
+    %h2 Publish your track to CDM
+
+    .form-inputs
+      %span.hint
+        %i *
+        Enter the link of your track from Youtube or Soundcloud
+      = f.input :url, placeholder: 'http://yourlink', label: false
+
+    .form-actions.text-right
+      = f.button :submit, "Submit"

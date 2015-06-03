@@ -97,9 +97,10 @@ article.music-item {
   margin: 10px 0;
 
   header.header {
-    // background-image: url(image_path('sample/gallery/1.png'));
     background-size: cover;
     height: 206px;
+    border: 1px solid #e1e1e1;
+    border-bottom: 0;
 
     .overlay {
       height: 100%;

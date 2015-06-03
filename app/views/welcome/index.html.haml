@@ -3,49 +3,48 @@
     = render partial: 'welcome/slider'
 
 - else
-  .container
-    .row
-      .col-xs-12
-        .music-charts
-          = link_to "Latest Music", "#", class: 'cdm-btn'
-          = link_to "Top Charts", "#", class: 'cdm-btn active'
-    .row.m-t-20
-      - @songs.each do |song|
-        .col-xs-12.col-sm-6.col-md-4
-          %article.music-item
-            %header.header{style: "background-image: url(#{image_path('sample/gallery/'+ (1+rand(3)).to_s + '.png')});"}
-              .overlay
-                %span.heart
-                  = link_to '#' do
-                    %i.icon.icon-heart-white-circle
-                %span.play
-                  = link_to '#' do
-                    %i.icon.icon-play-white-circle
-                %span.share
-                  = link_to '#' do
-                    %i.icon.icon-share-white-circle
+  .row
+    .col-xs-12
+      .music-charts
+        = link_to "Latest Music", "#", class: 'cdm-btn active'
+        = link_to "Top Charts", "#", class: 'cdm-btn'
+  .row.m-t-20
+    - @songs.each do |song|
+      .col-xs-12.col-sm-6.col-md-4
+        %article.music-item
+          %header.header{style: "background-image: url(#{song.image.list});"}
+            .overlay
+              %span.heart
+                = link_to '#' do
+                  %i.icon.icon-heart-white-circle
+              %span.play
+                = link_to '#' do
+                  %i.icon.icon-play-white-circle
+              %span.share
+                = link_to '#' do
+                  %i.icon.icon-share-white-circle
 
-            %section.details
-              .title
-                = song.title
-              %p.description
-                = song.description
-              .user-info.m-t-20
-                .avatar
-                  = image_tag song.user.avatar.thumb
-                by
-                %span.username= song.user.full_name
-                in CDM
-                .time
-                  = time_ago_in_words song.created_at
-                  ago
-              %hr
+          %section.details
+            .title
+              = song.title
+            %p.description
+              = song.description
+            .user-info.m-t-20
+              .avatar
+                = image_tag song.user.avatar.thumb
+              by
+              %span.username= song.user.full_name
+              in CDM
+              .time
+                = time_ago_in_words song.created_at
+                ago
+            %hr
 
-            %footer.footer
-              = link_to '#', class: 'cdm-btn play m-r-10' do
-                %i.icon.icon-play-grey
-                Play
-              = song.plays
-              plays
+          %footer.footer
+            = link_to '#', class: 'cdm-btn play m-r-10' do
+              %i.icon.icon-play-grey
+              Play
+            = song.plays
+            plays
 
 

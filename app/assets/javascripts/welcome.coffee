@@ -12,6 +12,9 @@ $(document).ready ->
       nextButton: '.swiper-button-next'
       prevButton: '.swiper-button-prev')
 
+  doc.on 'submit', 'form#new_song', ->
+    $('#modal-upload').modal('hide')
+
 
 $(window).resize ->
   if $('.swiper-container').length > 0
