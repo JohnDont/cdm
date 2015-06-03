@@ -11,16 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150603075400) do
+ActiveRecord::Schema.define(version: 20150603135013) do
 
   create_table "songs", force: :cascade do |t|
     t.string   "image",       limit: 255
     t.string   "title",       limit: 255
     t.text     "description", limit: 65535
     t.integer  "user_id",     limit: 4
-    t.integer  "plays",       limit: 4
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.integer  "plays",       limit: 4,     default: 0
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
     t.string   "provider",    limit: 255
     t.string   "provider_id", limit: 255
     t.string   "url",         limit: 255
