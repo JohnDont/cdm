@@ -144,6 +144,8 @@ article.music-item {
       font-weight: 600;
       color: $color-black;
       margin: 10px 0;
+      height: 50px;
+      overflow: hidden;
     }
 
     .description, .description a {
@@ -155,6 +157,11 @@ article.music-item {
       a {
         color: $color-blue;
       }
+    }
+
+    .description {
+      height: 54px;
+      overflow: hidden;
     }
 
     .user-info {

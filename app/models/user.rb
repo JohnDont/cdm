@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
 
   mount_uploader :avatar, AvatarUploader
 
+  has_many :songs
+
   def first_name
     full_name.split(' ').first
   end

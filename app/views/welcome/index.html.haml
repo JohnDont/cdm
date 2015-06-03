@@ -10,7 +10,7 @@
           = link_to "Latest Music", "#", class: 'cdm-btn'
           = link_to "Top Charts", "#", class: 'cdm-btn active'
     .row.m-t-20
-      - 6.times do
+      - @songs.each do |song|
         .col-xs-12.col-sm-6.col-md-4
           %article.music-item
             %header.header{style: "background-image: url(#{image_path('sample/gallery/'+ (1+rand(3)).to_s + '.png')});"}
@@ -27,29 +27,25 @@
 
             %section.details
               .title
-                Truck on D Road
-              .p.description
-                This is
-                = link_to "#Montreal", "#"
-                based
-                = link_to "#MatthewChaim’s", "#"
-                debut song release — the first track of the
-                = link_to "#She", "#"
-                EP, set to drop late Summer 2015.
+                = song.title
+              %p.description
+                = song.description
               .user-info.m-t-20
-                .avatar= image_tag "sample/user/#{1+rand(6)}.jpg"
+                .avatar
+                  = image_tag song.user.avatar.thumb
                 by
-                %span.username Andy
+                %span.username= song.user.full_name
                 in CDM
                 .time
-                  2 days ago
+                  = time_ago_in_words song.created_at
+                  ago
               %hr
 
             %footer.footer
               = link_to '#', class: 'cdm-btn play m-r-10' do
                 %i.icon.icon-play-grey
                 Play
-              = 20+rand(600)
+              = song.plays
               plays
 
 
