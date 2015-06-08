@@ -50,10 +50,10 @@
       -# %p.alert= alert
       = yield :slider
 
-      - if user_signed_in?
-        #content
-          .container
-            = yield
+      -# - if user_signed_in?
+      #content
+        .container
+          = yield
 
       .push
     %footer#footer
