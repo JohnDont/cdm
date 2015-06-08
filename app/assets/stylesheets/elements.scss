@@ -63,6 +63,14 @@
   &.icon-play-grey {
     @include icon("icons/play-grey", 17px, 17px);
   }
+
+  &.icon-heart-grey {
+    @include icon("icons/heart-grey", 17px, 15px);
+  }
+
+  &.icon-share-grey {
+    @include icon("icons/share-grey", 16px, 16px);;
+  }
 }
 
 .cdm-btn {
@@ -211,6 +219,7 @@ article.music-item {
   }
 
   footer.footer {
+    position: relative;
     padding: 10px;
     padding-top: 0;
     border: 1px solid #e1e1e1;
@@ -229,6 +238,26 @@ article.music-item {
         position: absolute;
         top: 8px;
         left: 10px;
+      }
+    }
+
+    .vote-share {
+      position: absolute;
+      top: 6px;
+      right: 10px;
+      padding-left: 22px;
+      padding-right: 21px;
+
+      .icon-heart-grey {
+        position: absolute;
+        left: 0;
+        top: 4px;
+      }
+
+      .icon-share-grey {
+        position: absolute;
+        right: 0;
+        top: 3px;
       }
     }
   }

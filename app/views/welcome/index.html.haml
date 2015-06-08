@@ -11,11 +11,11 @@
   .row.m-t-20
     - @songs.each do |song|
       .col-xs-12.col-sm-6.col-md-4
-        %article.music-item
+        %article.music-item{id: "song-item-#{song.id}"}
           %header.header{style: "background-image: url(#{song.image.list});"}
             .overlay
               %span.heart
-                = link_to '#' do
+                = link_to vote_song_path(song), remote: true, method: :post do
                   %i.icon.icon-heart-white-circle
               %span.play
                 = link_to '#' do
@@ -46,5 +46,10 @@
               Play
             = song.plays
             plays
+
+            .vote-share
+              %i.icon.icon-heart-grey
+              .votes= song.votes.size
+              %i.icon.icon-share-grey
 
 

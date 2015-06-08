@@ -2,6 +2,7 @@ class Song < ActiveRecord::Base
   before_validation :prepare
 
   belongs_to :user
+  has_many :votes, dependent: :destroy
 
   mount_uploader :image, SongImageUploader
 

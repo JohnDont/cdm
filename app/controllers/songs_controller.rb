@@ -1,4 +1,7 @@
 class SongsController < ApplicationController
+  before_action :authenticate_user!, except: [:share]
+  before_filter :load_song, only: [:share, :vote]
+
   def new
     @song = Song.new
 
@@ -24,10 +27,24 @@ class SongsController < ApplicationController
   end
 
   def share
-    @song = Song.find params[:id]
+  end
+
+  def vote
+    respond_to do |format|
+      if current_user.can_vote_for?(@song)
+        current_user.vote_for(@song)
+        format.js { render layout: false }
+      else
+        @error = "You have already voted for this song."
+        format.js { render layout: false }
+      end
+    end
   end
 
   private
+    def load_song
+      @song = Song.find params[:id]
+    end
 
     def song_params
       params.require(:song).permit(:url)

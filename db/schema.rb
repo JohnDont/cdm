@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150603135013) do
+ActiveRecord::Schema.define(version: 20150608121645) do
 
   create_table "songs", force: :cascade do |t|
     t.string   "image",       limit: 255
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20150603135013) do
     t.string   "provider",    limit: 255
     t.string   "provider_id", limit: 255
     t.string   "url",         limit: 255
+    t.integer  "votes_count", limit: 4,     default: 0
   end
 
   add_index "songs", ["user_id"], name: "index_songs_on_user_id", using: :btree
@@ -51,11 +52,24 @@ ActiveRecord::Schema.define(version: 20150603135013) do
     t.string   "provider",               limit: 255
     t.string   "uid",                    limit: 255
     t.string   "avatar",                 limit: 255
+    t.integer  "votes_count",            limit: 4,   default: 0
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  create_table "votes", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "song_id",    limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "votes", ["song_id"], name: "index_votes_on_song_id", using: :btree
+  add_index "votes", ["user_id"], name: "index_votes_on_user_id", using: :btree
+
   add_foreign_key "songs", "users"
+  add_foreign_key "votes", "songs"
+  add_foreign_key "votes", "users"
 end

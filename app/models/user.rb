@@ -9,7 +9,8 @@ class User < ActiveRecord::Base
 
   mount_uploader :avatar, AvatarUploader
 
-  has_many :songs
+  has_many :songs, dependent: :destroy
+  has_many :votes, dependent: :destroy
 
   def first_name
     full_name.split(' ').first
@@ -44,5 +45,13 @@ class User < ActiveRecord::Base
         user.remote_avatar_url = auth["info"]["image"].gsub('http://','https://')
       end
     end
+  end
+
+  def vote_for song
+    Vote.create(user: self, song: song)
+  end
+
+  def can_vote_for? song
+    Vote.where(user: self, song: song).count == 0
   end
 end

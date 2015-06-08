@@ -32,6 +32,10 @@ group :development, :test do
   gem 'quiet_assets'
 end
 
+group :development do
+  gem 'meta_request'
+end
+
 group :test do
   gem 'shoulda-matchers'
 end

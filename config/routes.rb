@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :songs, only: [:new, :create] do
     member do
       get :share
+      post :vote
     end
   end
 end
