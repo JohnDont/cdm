@@ -21,6 +21,7 @@ gem 'soundcloud'
 gem 'turbolinks'
 gem 'omniauth-facebook'
 gem 'uglifier', '>= 1.3.0'
+gem 'yourub'
 
 
 group :development, :test do

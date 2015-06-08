@@ -18,7 +18,7 @@ class SongsController < ApplicationController
         format.js { render layout: false }
       else
         format.html { render :new }
-        format.js
+        format.js { render :new, layout: false }
       end
     end
   end

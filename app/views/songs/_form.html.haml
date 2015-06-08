@@ -2,6 +2,8 @@
   = simple_form_for(song, remote: true) do |f|
     %h2 Publish your track to CDM
 
+    = f.error_notification
+
     .form-inputs
       %span.hint
         %i *

@@ -5,20 +5,46 @@ class Song < ActiveRecord::Base
 
   mount_uploader :image, SongImageUploader
 
+  validates :user, :url, :provider, :provider_id, presence: true
+
   private
   def prepare
-    return if persisted?
+    return if persisted? or url.blank?
+
     if self.url.match 'soundcloud.com'
       client = Soundcloud.new(client_id: ENV['soundcloud_id'])
 
-      track = client.get('/resolve', url: self.url)
+      begin
+        track = client.get('/resolve', url: self.url)
+      rescue Soundcloud::ResponseError => e
+        self.errors.add :url, "video was not found, check your url"
+        return
+      end
+
       self.provider = 'soundcloud'
       self.provider_id = track.id
       self.title = track.title
       self.description = track.description
       self.remote_image_url = track.artwork_url.gsub('-large', '-t500x500')
-    elsif self.url.match 'youtu.be|youtube.com'
 
+    elsif self.url.match 'youtu.be|youtube.com'
+      provider_id = CGI.parse(URI.parse(self.url).query)['v'].first
+      client = Yourub::Client.new
+
+      track = client.get provider_id
+      unless track
+        self.errors.add :url, "video was not found, check your url"
+        return
+      end
+
+      self.provider = 'youtube'
+      self.provider_id = track['id']
+      self.title = track['snippet']['title']
+      self.description = track['snippet']['description']
+      self.remote_image_url = track["snippet"]["thumbnails"]["standard"]["url"]
+
+    else
+      self.errors.add :url, "not recognized provider"
     end
   end
 end
