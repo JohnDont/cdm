@@ -47,6 +47,6 @@ class SongsController < ApplicationController
     end
 
     def song_params
-      params.require(:song).permit(:url)
+      params.require(:song).permit(:url, :category_id)
     end
 end

@@ -10,5 +10,10 @@
         Enter the link of your track from Youtube or Soundcloud
       = f.input :url, placeholder: 'http://yourlink', label: false
 
+      %span.hint
+        %i *
+        Select category genre
+      = f.association :category, label: false
+
     .form-actions.text-right
       = f.button :submit, "Submit"

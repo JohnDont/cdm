@@ -2,11 +2,12 @@ class Song < ActiveRecord::Base
   before_validation :prepare
 
   belongs_to :user
+  belongs_to :category
   has_many :votes, dependent: :destroy
 
   mount_uploader :image, SongImageUploader
 
-  validates :user, :url, :provider, :provider_id, presence: true
+  validates :user, :category, :url, :provider, :provider_id, presence: true
 
   private
   def prepare
@@ -45,7 +46,7 @@ class Song < ActiveRecord::Base
       self.remote_image_url = track["snippet"]["thumbnails"]["standard"]["url"]
 
     else
-      self.errors.add :url, "not recognized provider"
+      self.errors.add :url, "provider not recognized"
     end
   end
 end

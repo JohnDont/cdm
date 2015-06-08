@@ -282,6 +282,31 @@ body.page-welcome-index {
 
   form .form-inputs .input {
     margin-top: 5px;
+
+    &.select {
+      width: 100%;
+      min-height: 45px;
+      overflow: hidden;
+      border: 1px solid $color-grey;
+
+      &:hover, &:focus {
+        border-color: $color-light-blue;
+      }
+    }
+
+    select {
+      background: transparent;
+      width: 100%;
+      height: 45px;
+      padding: 0 20px;
+      font-size: 14px;
+      line-height: 1;
+      border: 0;
+      @include border-top-radius(0px);
+      @include border-bottom-radius(0px);
+      -webkit-appearance: none;
+
+    }
   }
 }
 
