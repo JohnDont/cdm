@@ -8,11 +8,11 @@
     = @song.title
 
   .holder-share-buttons.m-t-30
-    = link_to "javascript: void(0)", class: 'share-facebook', onclick: "window.open('#{fb_share_link(@song.url)}','sharer','toolbar=0,status=0,width=548,height=325');" do
+    = link_to "javascript: void(0)", class: 'share-facebook', onclick: "window.open('#{fb_share_link(share_song_url(@song))}','sharer','toolbar=0,status=0,width=548,height=325');" do
       %i
       Share On Facebook
 
-    = link_to '#', class: 'share-twitter', onclick: "window.open('#{tw_share_link(@song.url)}','sharer','toolbar=0,status=0,width=548,height=325');" do
+    = link_to '#', class: 'share-twitter', onclick: "window.open('#{tw_share_link(share_song_url(@song))}','sharer','toolbar=0,status=0,width=548,height=325');" do
       %i
       Share on Twitter
 
@@ -20,7 +20,7 @@
   %form
     .form-inputs
       %span.hint Share Links
-      %input{name: :url, type: :url, value: @song.url}/
+      %input{name: :url, type: :url, value: share_song_url(@song)}/
 
 
   .text-right.m-t-30
