@@ -23,8 +23,16 @@ $(window).resize ->
     $('.swiper-container, .swiper-slide').height height
     $('.swiper-container, .swiper-slide').width width
     #Add reInit, because jQuery's resize event handler may occur earlier than Swiper's one
-    swiper.reInit()
-    return
+    # mySwiper.reInit()
+
+    $.each $('.swiper-slide'), (key, item) ->
+      slide = $(item)
+      content = $(slide.find('.holder-slide-content'))
+      marginValue = (slide.height()-content.height()) / 2
+
+      content.css('margin-top', marginValue + "px")
+
+
 
 $(window).resize()
 
