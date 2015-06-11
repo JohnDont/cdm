@@ -1,6 +1,6 @@
 class SongsController < ApplicationController
   before_action :authenticate_user!, except: [:share]
-  before_filter :load_song, only: [:share, :vote]
+  before_filter :load_song, only: [:share, :vote, :play]
 
   def new
     @song = Song.new
@@ -38,6 +38,14 @@ class SongsController < ApplicationController
         @error = "You have already voted for this song."
         format.js { render layout: false }
       end
+    end
+  end
+
+  def play
+    @song.play
+
+    respond_to do |format|
+      format.js { render layout: false }
     end
   end
 

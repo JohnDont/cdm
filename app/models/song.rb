@@ -9,6 +9,10 @@ class Song < ActiveRecord::Base
 
   validates :user, :category, :url, :provider, :provider_id, presence: true
 
+  def play
+    increment! :plays
+  end
+
   private
   def prepare
     return if persisted? or url.blank?
