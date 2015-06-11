@@ -13,7 +13,7 @@
 $(document).ready ->
   doc = $(document)
 
-  $('.infinite-table').infinitePages
+  $('.infinite-songs').infinitePages
     # debug: true
     # buffer: 200
     loading: ->

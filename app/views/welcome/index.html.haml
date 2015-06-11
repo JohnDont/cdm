@@ -3,12 +3,14 @@
     = render partial: 'welcome/slider'
 
 - else
+  #player
+
   .row
     .col-xs-12
       .music-charts
         = link_to "Latest Music", "#", class: 'cdm-btn active'
         = link_to "Top Charts", "#", class: 'cdm-btn'
-  .infinite-table
+  .infinite-songs
     .row.m-t-20
       .holder-songs
         - @songs.each do |song|
@@ -17,6 +19,3 @@
     .row.m-t-20
       .pagination
         = link_to_next_page @songs, 'Next Page', remote: true
-
-
-

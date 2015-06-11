@@ -15,6 +15,18 @@ $(document).ready ->
   doc.on 'submit', 'form#new_song', ->
     $('#modal-upload').modal('hide')
 
+  doc.on 'click', 'article.music-item a.play-song', ->
+    event.preventDefault()
+
+    provider = $(this).data('provider')
+    providerID = $(this).data('provider-id')
+
+    $('article.music-item .overlay').removeClass('active')
+    $(this).parents('article.music-item').find('.overlay').addClass('active')
+
+    if provider == 'youtube'
+      html = '<iframe width="560" height="315" src="https://www.youtube.com/embed/' + providerID + '?rel=0&amp;controls=0&amp;showinfo=0&autoplay=1" frameborder="0" allowfullscreen></iframe>'
+      $("#player").html html
 
 $(window).resize ->
   if $('.swiper-container').length > 0

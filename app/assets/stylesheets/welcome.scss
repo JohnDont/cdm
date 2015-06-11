@@ -254,10 +254,19 @@
 }
 
 body.page-welcome-index {
+  position: relative;
+
   .music-charts {
     a.cdm-btn {
       text-transform: uppercase;
     }
+  }
+
+  #player {
+    position: fixed;
+    z-index: $z-index-player;
+    right: 15px;
+    bottom: 15px;
   }
 }
 
