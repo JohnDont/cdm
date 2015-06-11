@@ -8,9 +8,15 @@
       .music-charts
         = link_to "Latest Music", "#", class: 'cdm-btn active'
         = link_to "Top Charts", "#", class: 'cdm-btn'
-  .row.m-t-20
-    .holder-songs
-      - @songs.each do |song|
-        = render partial: 'welcome/song_item', locals: {song: song}
+  .infinite-table
+    .row.m-t-20
+      .holder-songs
+        - @songs.each do |song|
+          = render partial: 'welcome/song_item', locals: {song: song}
+
+    .row.m-t-20
+      .pagination
+        = link_to_next_page @songs, 'Next Page', remote: true
+
 
 

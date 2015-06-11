@@ -43,7 +43,7 @@ class Song < ActiveRecord::Base
       self.provider_id = track['id']
       self.title = track['snippet']['title']
       self.description = track['snippet']['description']
-      self.remote_image_url = track["snippet"]["thumbnails"]["standard"]["url"]
+      self.remote_image_url = track["snippet"]["thumbnails"].values.last["url"]
 
     else
       self.errors.add :url, "provider not recognized"
