@@ -17,4 +17,6 @@ Rails.application.routes.draw do
       post :play
     end
   end
+
+  resources :users, only: [:show]
 end

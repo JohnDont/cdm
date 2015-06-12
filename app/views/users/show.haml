@@ -1,0 +1,12 @@
+= content_for :header_title do
+  = "#{@user.full_name} uploads"
+
+.infinite-songs
+  .row.m-t-20
+    .holder-songs
+      - @songs.each do |song|
+        = render partial: 'welcome/song_item', locals: {song: song}
+
+  .row.m-t-20
+    .pagination
+      = link_to_next_page @songs, 'Next Page', remote: true

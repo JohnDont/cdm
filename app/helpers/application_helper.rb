@@ -1,6 +1,10 @@
 module ApplicationHelper
   def body_class
-    'page-' + params[:controller].gsub('/', '-') + '-' + params[:action]
+    name = 'page-' + params[:controller].gsub('/', '-') + '-' + params[:action]
+    if params[:controller] == "users" and params[:action] == "show"
+      name += " #{name}-#{params[:id]}"
+    end
+    name
   end
 
   def resource_name

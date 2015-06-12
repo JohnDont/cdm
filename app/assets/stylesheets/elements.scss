@@ -183,7 +183,7 @@ article.music-item {
       font-weight: normal;
       color: $color-dark-grey;
 
-      span.username {
+      span.username, span.username a {
         color: $color-blue;
       }
 

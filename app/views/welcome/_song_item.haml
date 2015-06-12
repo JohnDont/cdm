@@ -21,7 +21,7 @@
         .avatar
           = image_tag song.user.avatar.thumb
         by
-        %span.username= song.user.full_name
+        %span.username= link_to song.user.full_name, user_path(song.user)
         in CDM
         .time
           = link_to share_song_path(song) do

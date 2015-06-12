@@ -28,7 +28,11 @@
           .holder-title.text-center
             .title
               %i.icon.icon-arrow-trend
-              Most Popular
+              - if content_for :header_title
+                = yield :header_title
+              - else
+                Most Popular
+
           #navbar.collapse.navbar-collapse
             %ul.nav.navbar-nav
               - if user_signed_in?
@@ -42,7 +46,7 @@
             - if user_signed_in?
               .user-info
                 %span.avatar= image_tag current_user.avatar.thumb
-                = current_user.first_name
+                = link_to current_user.first_name, user_path(current_user)
                 %ul
                   %li= link_to "Logout", destroy_user_session_path
 
@@ -51,6 +55,7 @@
       = yield :slider
 
       - if user_signed_in? or devise_controller?
+        #player
         #content
           .container
             = yield

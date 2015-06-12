@@ -1,23 +1,31 @@
-<% if params[:reload] %>
-$('body.page-welcome-index .holder-songs').html ''
-$('body.page-welcome-index .music-charts a').removeClass 'active'
+# bodyClass = "body.<%= body_class %>"
 
-<% if params[:top] %>
-$('body.page-welcome-index .music-charts a.top').addClass 'active'
-<% else %>
-$('body.page-welcome-index .music-charts a.latest').addClass 'active'
-<% end %>
+<% body_class.split(' ').each do |c| %>
 
-<% end %>
+bodyClass = "body.<%= c %>"
+if bodyClass.length > 0
+  <% if params[:reload] %>
+  $(bodyClass + ' .holder-songs').html ''
+  $(bodyClass + ' .music-charts a').removeClass 'active'
+
+  <% if params[:top] %>
+  $(bodyClass + ' .music-charts a.top').addClass 'active'
+  <% else %>
+  $(bodyClass + ' .music-charts a.latest').addClass 'active'
+  <% end %>
+
+  <% end %>
 
 
-<% @songs.each do |song| %>
-html = "<%= escape_javascript(render partial: 'welcome/song_item', locals: {song: song}) %>"
-$('body.page-welcome-index .holder-songs').append html
-<% end %>
+  <% @songs.each do |song| %>
+  html = "<%= escape_javascript(render partial: 'welcome/song_item', locals: {song: song}) %>"
+  $(bodyClass + ' .holder-songs').append html
+  <% end %>
 
-<% if @songs.last_page? %>
-$('.pagination').html("That's all, folks!");
-<% else %>
-$('.pagination').html("<%=j link_to_next_page(@songs, 'Next Page', remote: true, params: params.slice(:top)) %>");
+  <% if @songs.last_page? %>
+  $(bodyClass + ' .pagination').html("That's all, folks!");
+  <% else %>
+  $(bodyClass + ' .pagination').html("<%=j link_to_next_page(@songs, 'Next Page', remote: true, params: params.slice(:top)) %>");
+  <% end %>
+
 <% end %>

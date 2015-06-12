@@ -72,6 +72,10 @@ nav.navbar#header {
         font-weight: 600;
         color: $color-dark-grey;
 
+        a {
+          color: $color-dark-grey;
+        }
+
         span.avatar {
           margin: 0 5px;
           img {

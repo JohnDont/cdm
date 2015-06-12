@@ -262,13 +262,6 @@ body.page-welcome-index {
       text-decoration: none;
     }
   }
-
-  #player {
-    position: fixed;
-    z-index: $z-index-player;
-    right: 15px;
-    bottom: 15px;
-  }
 }
 
 .holder-upload-form {
@@ -373,4 +366,11 @@ body.page-welcome-index {
     font-family: $font-open-sans;
     font-size: 12px;
   }
+}
+
+#player {
+  position: fixed;
+  z-index: $z-index-player;
+  right: 15px;
+  bottom: 15px;
 }
