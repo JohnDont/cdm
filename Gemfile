@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+ruby '2.2.1'
 
 gem 'rails', '4.2.1'
 gem 'mysql2'
@@ -20,6 +21,8 @@ gem 'jquery-infinite-pages'
 gem 'kaminari'
 gem 'mini_magick'
 gem 'newrelic_rpm'
+gem 'puma'
+gem 'rails_12factor'
 gem 'sass-rails', '~> 5.0'
 gem 'simple_form'
 gem 'soundcloud'
