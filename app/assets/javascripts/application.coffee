@@ -14,7 +14,7 @@
 $(document).ready ->
   doc = $(document)
 
-  $('.infinite-songs1').infinitePages
+  $('.infinite-songs').infinitePages
     # debug: true
     # buffer: 200
     loading: ->
