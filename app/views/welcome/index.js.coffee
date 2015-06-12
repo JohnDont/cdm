@@ -19,5 +19,5 @@ $('body.page-welcome-index .holder-songs').append html
 <% if @songs.last_page? %>
 $('.pagination').html("That's all, folks!");
 <% else %>
-$('.pagination').html("<%=j link_to_next_page(@songs, 'Next Page', remote: true, params: params) %>");
+$('.pagination').html("<%=j link_to_next_page(@songs, 'Next Page', remote: true, params: params.slice(:top)) %>");
 <% end %>
