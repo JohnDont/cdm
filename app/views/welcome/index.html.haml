@@ -8,8 +8,8 @@
   .row
     .col-xs-12
       .music-charts
-        = link_to "Latest Music", "#", class: 'cdm-btn active'
-        = link_to "Top Charts", "#", class: 'cdm-btn'
+        = link_to "Latest Music", root_path(reload: true), remote: true,  class: "cdm-btn latest #{params[:top] ? '' : 'active'}"
+        = link_to "Top Charts", root_path(reload: true, top: true), remote: true, class: "cdm-btn top #{params[:top] ? 'active' : ''}"
   .infinite-songs
     .row.m-t-20
       .holder-songs
@@ -18,4 +18,4 @@
 
     .row.m-t-20
       .pagination
-        = link_to_next_page @songs, 'Next Page', remote: true
+        = link_to_next_page @songs, 'Next Page', remote: true, params: params

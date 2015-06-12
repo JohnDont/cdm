@@ -4,7 +4,13 @@ class WelcomeController < ApplicationController
       page = params[:page] || 1
       per = params[:per] || 6
 
-      @songs = Song.order(created_at: :desc).page(page).per(per)
+      if params['top']
+        @songs = Song.top
+      else
+        @songs = Song.latest
+      end
+
+      @songs = @songs.page(page).per(per)
     end
 
     respond_to do |format|

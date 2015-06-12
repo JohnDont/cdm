@@ -9,6 +9,9 @@ class Song < ActiveRecord::Base
 
   validates :user, :category, :url, :provider, :provider_id, presence: true
 
+  scope :latest, -> { order(created_at: :desc) }
+  scope :top, -> { select('`songs`.`votes_count` + `songs`.`plays` AS `songs_score`, `songs`.*').order('`songs_score` DESC') }
+
   def play
     increment! :plays
   end
