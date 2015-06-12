@@ -13,6 +13,7 @@ $(document).ready ->
       prevButton: '.swiper-button-prev')
 
   doc.on 'submit', 'form#new_song', ->
+    $('#new_song input').prop("disabled", true)
     $('#modal-upload').modal('hide')
 
   doc.on 'click', 'article.music-item a.play-song', ->
