@@ -10,8 +10,14 @@ class Song < ActiveRecord::Base
   validates :user, :category, :url, :provider, :provider_id, presence: true
 
   scope :latest, -> { order(created_at: :desc) }
-  scope :top, -> { select('songs.votes_count + songs.plays AS songs_score, songs.*')
+  scope :top, ->(offset = 0) { select('songs.votes_count + songs.plays AS songs_score, songs.*, @curRow := @curRow + 1 AS top_position')
+    .joins("JOIN (SELECT @curRow := #{offset}) r")
     .order('songs_score DESC, songs.votes_count DESC, songs.plays DESC') }
+
+
+  define_method(:top_position) do
+    attributes['top_position']
+  end
 
   def play
     increment! :plays

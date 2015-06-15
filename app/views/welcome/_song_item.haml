@@ -13,7 +13,9 @@
             %i.icon.icon-share-white-circle
 
     %section.details
-      .title
+      .title{class: song.top_position ? 'with-top' : ''}
+        - if song.top_position
+          %span.top-position= song.top_position
         = song.title
       %p.description
         = song.description
