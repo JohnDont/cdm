@@ -13,7 +13,7 @@
       %span.hint
         %i *
         Select category genre
-      = f.association :category, label: false
+      = f.association :category, label: false, include_blank: 'Select category genre'
 
     .form-actions.text-right
       = f.button :submit, "Submit"
