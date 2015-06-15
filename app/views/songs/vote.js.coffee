@@ -10,8 +10,8 @@ $("article.music-item#song-item-<%= @song.id %> .votes").html "<%= @song.votes.s
 <% end %>
 
 
-setTimeout (->
-  $('#modal-upload .modal-body .content').html "<h3 class='text-center'><%= msg %></h3>"
-  $('#modal-upload').modal('show')
-  return
-), 500
+# setTimeout (->
+#   $('#modal-upload .modal-body .content').html "<h3 class='text-center'><%= msg %></h3>"
+#   $('#modal-upload').modal('show')
+#   return
+# ), 500
