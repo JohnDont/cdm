@@ -42,7 +42,7 @@ class SongsController < ApplicationController
   end
 
   def play
-    @song.play
+    @song.play if request.post?
 
     respond_to do |format|
       format.js { render layout: false }

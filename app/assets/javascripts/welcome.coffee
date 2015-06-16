@@ -27,15 +27,22 @@ $(document).ready ->
     $('article.music-item .overlay').removeClass('active')
     $(this).parents('article.music-item').find('.overlay').addClass('active')
 
-    if provider == 'youtube'
-      html = '<iframe width="560" height="315" src="https://www.youtube.com/embed/' + providerID + '?rel=0&amp;controls=0&amp;showinfo=0&autoplay=1" frameborder="0" allowfullscreen></iframe>'
-      $("#player").html html
-      if localStorage.getItem(timeKey) is null or (new Date().getTime() - localStorage.getItem(timeKey))/1000 >= 30
-        $.post Routes.play_song_path(songID)
-        localStorage.setItem(timeKey, new Date().getTime())
-        console.log 1
-      else
-        console.log 2
+    $.get Routes.play_song_path(songID)
+
+    if localStorage.getItem(timeKey) is null or (new Date().getTime() - localStorage.getItem(timeKey))/1000 >= 30
+      $.post Routes.play_song_path(songID)
+      localStorage.setItem(timeKey, new Date().getTime())
+    else
+      console.log 2
+
+
+  doc.on 'click', '#player a.close-player', ->
+    $('#player').fadeOut()
+    setTimeout (->
+      $('#player').html ''
+      return
+    ), 500
+    false
 
 $(window).resize ->
   if $('.swiper-container').length > 0

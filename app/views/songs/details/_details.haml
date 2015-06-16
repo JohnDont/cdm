@@ -1,0 +1,18 @@
+%section.details
+  .title{class: song.top_position ? 'with-top' : ''}
+    - if song.top_position
+      %span.top-position= song.top_position
+    = song.title
+  %p.description
+    = song.description
+  .user-info.m-t-20
+    .avatar
+      = image_tag song.user.avatar.thumb
+    by
+    %span.username= link_to song.user.full_name, user_path(song.user)
+    in CDM
+    .time
+      = link_to share_song_path(song) do
+        = time_ago_in_words song.created_at
+        ago
+  %hr

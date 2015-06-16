@@ -8,6 +8,7 @@ class Song < ActiveRecord::Base
   mount_uploader :image, SongImageUploader
 
   validates :user, :category, :url, :provider, :provider_id, presence: true
+  validates_uniqueness_of :provider_id, scope: :provider
 
   scope :latest, -> { order(created_at: :desc) }
   scope :top, ->(offset = 0) { select('songs.votes_count + songs.plays AS songs_score, songs.*, @curRow := @curRow + 1 AS top_position')

@@ -1,44 +1,5 @@
 .col-xs-12.col-sm-6.col-md-4
   %article.music-item{id: "song-item-#{song.id}"}
-    %header.header{style: "background-image: url(#{song.image.list});"}
-      .overlay
-        %span.heart
-          = link_to vote_song_path(song), remote: true, method: :post do
-            %i.icon.icon-heart-white-circle
-        %span.play
-          = link_to '#', class: 'play-song', data: {provider_id: song.provider_id, provider: song.provider, song_id: song.id} do
-            %i.icon.icon-play-white-circle
-        %span.share
-          = link_to '#' do
-            %i.icon.icon-share-white-circle
-
-    %section.details
-      .title{class: song.top_position ? 'with-top' : ''}
-        - if song.top_position
-          %span.top-position= song.top_position
-        = song.title
-      %p.description
-        = song.description
-      .user-info.m-t-20
-        .avatar
-          = image_tag song.user.avatar.thumb
-        by
-        %span.username= link_to song.user.full_name, user_path(song.user)
-        in CDM
-        .time
-          = link_to share_song_path(song) do
-            = time_ago_in_words song.created_at
-            ago
-      %hr
-
-    %footer.footer
-      = link_to '#', class: 'cdm-btn play m-r-10 play-song', data: {provider_id: song.provider_id, provider: song.provider, song_id: song.id} do
-        %i.icon.icon-play-grey
-        Play
-      %span.plays= song.plays
-      plays
-
-      .vote-share
-        %i.icon.icon-heart-grey
-        .votes= song.votes.size
-        %i.icon.icon-share-grey
+    = render partial: 'songs/details/header', locals: {song: song}
+    = render partial: 'songs/details/details', locals: {song: song}
+    = render partial: 'songs/details/footer', locals: {song: song}

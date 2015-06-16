@@ -373,4 +373,41 @@ body.page-welcome-index {
   z-index: $z-index-player;
   right: 15px;
   bottom: 15px;
+
+  .iframe {
+    float: left;
+  }
+  .song-info {
+    width: 270px;
+    height: 315px;
+    float: left;
+    background-color: $color-white;
+    position: relative;
+
+    a.close-player {
+      background-color: #ff4d54;
+      @include size(14px, 14px);
+      @include border-top-radius(7px);
+      @include border-bottom-radius(7px);
+      color: $color-white;
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      text-align: center;
+      line-height: 14px;
+      font-size: 12px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    section.details {
+      @extend .music-item-details;
+      height: 270px;
+      border-top: 1px solid #e1e1e1;
+    }
+
+    footer.footer {
+      @extend .music-item-footer;
+    }
+  }
 }

@@ -1,0 +1,7 @@
+.iframe
+  - if song.provider == 'youtube'
+    %iframe{:allowfullscreen => "", :frameborder => "0", :height => "315", :src => "https://www.youtube.com/embed/#{song.provider_id}?rel=0&controls=1&showinfo=1&autoplay=1", :width => "560"}
+.song-info{id: "song-player-#{song.id}"}
+  %a.close-player x
+  = render partial: 'songs/details/details', locals: {song: song}
+  = render partial: 'songs/details/footer', locals: {song: song}

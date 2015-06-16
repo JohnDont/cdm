@@ -5,6 +5,7 @@
 <% else %>
 
 $("article.music-item#song-item-<%= @song.id %> .votes").html "<%= @song.votes.size %>"
+$("#player #song-player-<%= @song.id %> .votes").html "<%= @song.votes.size %>"
 <% msg = "Thank you for your vote!" %>
 
 <% end %>

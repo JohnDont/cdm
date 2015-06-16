@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       get :share
       post :vote
       post :play
+      get :play
     end
   end
 
