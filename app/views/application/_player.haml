@@ -1,6 +1,9 @@
 .iframe
   - if song.provider == 'youtube'
     %iframe{:allowfullscreen => "", :frameborder => "0", :height => "315", :src => "https://www.youtube.com/embed/#{song.provider_id}?rel=0&controls=1&showinfo=1&autoplay=1", :width => "560"}
+  - elsif song.provider == 'soundcloud'
+    %iframe{:frameborder => "no", :height => "315", :scrolling => "no", :src => "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/#{song.provider_id}&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&visual=true", :width => "560"}
+
 .song-info{id: "song-player-#{song.id}"}
   %a.close-player x
   = render partial: 'songs/details/details', locals: {song: song}
