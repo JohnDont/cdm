@@ -33,7 +33,7 @@ $z-index-player: 1000;
   display: inline-block;
   background-repeat: no-repeat;
   background-position: center;
-  @include retina-image($image, $width $height, $asset-pipeline: true);
+  @include retina-image($image, $width $height, $retina-suffix: '@2x', $asset-pipeline: true);
 }
 
 @mixin placeholder {
