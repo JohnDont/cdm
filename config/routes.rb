@@ -14,7 +14,6 @@ Rails.application.routes.draw do
     member do
       get :share
       post :vote
-      post :play
       get :play
     end
   end

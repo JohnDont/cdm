@@ -29,13 +29,6 @@ $(document).ready ->
 
     $.get Routes.play_song_path(songID)
 
-    if localStorage.getItem(timeKey) is null or (new Date().getTime() - localStorage.getItem(timeKey))/1000 >= 30
-      $.post Routes.play_song_path(songID)
-      localStorage.setItem(timeKey, new Date().getTime())
-    else
-      console.log 2
-
-
   doc.on 'click', '#player a.close-player', ->
     $('#player').fadeOut()
     setTimeout (->

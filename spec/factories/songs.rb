@@ -7,7 +7,6 @@ FactoryGirl.define do
     sequence(:title) { Faker::Lorem.sentence(rand(2..5)) }
     sequence(:description) { Faker::Lorem.sentences(3).join(' ') }
     sequence(:user) { FactoryGirl.create(:user) }
-    sequence(:plays) { rand(1..200) }
     sequence(:category) { FactoryGirl.create(:category) }
     sequence(:url) { "https://www.youtube.com/watch?v=#{videos.sample}" }
   end

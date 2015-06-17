@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
 
   has_many :songs, dependent: :destroy
   has_many :votes, dependent: :destroy
+  has_many :plays, dependent: :destroy
 
   def first_name
     full_name.split(' ').first
@@ -53,5 +54,15 @@ class User < ActiveRecord::Base
 
   def can_vote_for? song
     Vote.where(user: self, song: song).count == 0
+  end
+
+  def can_play? song
+    song.plays.where(user: self)
+      .where('created_at >= ?', Time.now-30.seconds).empty?
+  end
+
+  def play song
+    return unless can_play? song
+    Play.create(song: song, user: self)
   end
 end

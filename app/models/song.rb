@@ -4,6 +4,7 @@ class Song < ActiveRecord::Base
   belongs_to :user
   belongs_to :category
   has_many :votes, dependent: :destroy
+  has_many :plays, dependent: :destroy
 
   mount_uploader :image, SongImageUploader
 
@@ -11,17 +12,31 @@ class Song < ActiveRecord::Base
   validates_uniqueness_of :provider_id, scope: :provider
 
   scope :latest, -> { order(created_at: :desc) }
-  scope :top, ->(offset = 0) { select('songs.votes_count + songs.plays AS songs_score, songs.*, @curRow := @curRow + 1 AS top_position')
-    .joins("JOIN (SELECT @curRow := #{offset}) r")
-    .order('songs_score DESC, songs.votes_count DESC, songs.plays DESC') }
-
+  scope :top, ->(offset=0, start_date=nil, end_date=nil) {
+    if start_date.present? && end_date.present?
+      select('COALESCE(v_count, 0) + COALESCE(p_count, 0) AS songs_score, songs.*')
+      .joins("LEFT JOIN (
+        SELECT COUNT(votes.id) AS v_count, votes.song_id as votes_song_id
+        FROM votes
+        WHERE (votes.created_at BETWEEN '#{start_date} 00:00:00' AND '#{end_date} 23:59:59')
+        GROUP BY votes.song_id
+      ) v ON v.votes_song_id = songs.id")
+      .joins("LEFT JOIN (
+        SELECT COUNT(plays.id) AS p_count, plays.song_id as plays_song_id
+        FROM plays
+        WHERE (plays.created_at BETWEEN '#{start_date} 00:00:00' AND '#{end_date} 23:59:59')
+        GROUP BY plays.song_id
+      ) p ON p.plays_song_id = songs.id")
+      .order('songs_score DESC, songs.votes_count DESC, songs.plays_count DESC')
+    else
+      select('songs.votes_count + songs.plays_count AS songs_score, songs.*, @curRow := @curRow + 1 AS top_position')
+      .joins("JOIN (SELECT @curRow := #{offset}) r")
+      .order('songs_score DESC, songs.votes_count DESC, songs.plays_count DESC')
+    end
+    }
 
   define_method(:top_position) do
     attributes['top_position']
-  end
-
-  def play
-    increment! :plays
   end
 
   private
