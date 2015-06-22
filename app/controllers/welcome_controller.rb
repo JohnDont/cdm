@@ -5,8 +5,8 @@ class WelcomeController < ApplicationController
       per = params[:per] || 6
 
       if params['top']
-        top_offset = (page.to_i-1)*per.to_i
-        @songs = Song.top(top_offset)
+        @top_offset = (page.to_i-1)*per.to_i
+        @songs = Song.top(Date.today, Date.today)
       else
         @songs = Song.latest
       end

@@ -1,7 +1,7 @@
 %section.details
-  .title{class: song.top_position ? 'with-top' : ''}
-    - if song.top_position
-      %span.top-position= song.top_position
+  .title{class: @top_offset.present? ? 'with-top' : ''}
+    - if @top_offset.present?
+      %span.top-position= @top_offset + index + 1
     = song.title
   %p.description
     = song.description

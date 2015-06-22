@@ -11,8 +11,8 @@
   .infinite-songs
     .row.m-t-20
       .holder-songs
-        - @songs.each do |song|
-          = render partial: 'welcome/song_item', locals: {song: song}
+        - @songs.each_with_index do |song, index|
+          = render partial: 'welcome/song_item', locals: {song: song, index: index}
 
     .row.m-t-20
       .pagination

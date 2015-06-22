@@ -12,7 +12,7 @@ class Song < ActiveRecord::Base
   validates_uniqueness_of :provider_id, scope: :provider
 
   scope :latest, -> { order(created_at: :desc) }
-  scope :top, ->(offset=0, start_date=nil, end_date=nil) {
+  scope :top, ->(start_date=nil, end_date=nil) {
     if start_date.present? && end_date.present?
       select('COALESCE(v_count, 0) + COALESCE(p_count, 0) AS songs_score, songs.*')
       .joins("LEFT JOIN (
@@ -29,15 +29,10 @@ class Song < ActiveRecord::Base
       ) p ON p.plays_song_id = songs.id")
       .order('songs_score DESC, songs.votes_count DESC, songs.plays_count DESC')
     else
-      select('songs.votes_count + songs.plays_count AS songs_score, songs.*, @curRow := @curRow + 1 AS top_position')
-      .joins("JOIN (SELECT @curRow := #{offset}) r")
+      select('songs.votes_count + songs.plays_count AS songs_score, songs.*')
       .order('songs_score DESC, songs.votes_count DESC, songs.plays_count DESC')
     end
     }
-
-  define_method(:top_position) do
-    attributes['top_position']
-  end
 
   private
   def prepare

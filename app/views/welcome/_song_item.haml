@@ -1,5 +1,5 @@
 .col-xs-12.col-sm-6.col-md-4
   %article.music-item{id: "song-item-#{song.id}"}
     = render partial: 'songs/details/header', locals: {song: song}
-    = render partial: 'songs/details/details', locals: {song: song}
+    = render partial: 'songs/details/details', locals: {song: song, index: index}
     = render partial: 'songs/details/footer', locals: {song: song}

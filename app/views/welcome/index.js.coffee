@@ -17,8 +17,8 @@ if bodyClass.length > 0
   <% end %>
 
 
-  <% @songs.each do |song| %>
-  html = "<%= escape_javascript(render partial: 'welcome/song_item', locals: {song: song}) %>"
+  <% @songs.each_with_index do |song, index| %>
+  html = "<%= escape_javascript(render partial: 'welcome/song_item', locals: {song: song, index: index}) %>"
   $(bodyClass + ' .holder-songs').append html
   <% end %>
 
