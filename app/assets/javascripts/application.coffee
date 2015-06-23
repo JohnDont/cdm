@@ -1,6 +1,6 @@
 #= require jquery
 #= require jquery_ujs
-#= require turbolinks
+# require turbolinks
 #= require bootstrap-sprockets
 #= require js-routes
 
@@ -21,3 +21,7 @@ $(document).ready ->
       $(this).text('Loading next page...')
     error: ->
       $(this).button('There was an error, please try again')
+
+  doc.on 'click', '.holder-sort-by a.sort-menu', ->
+    $(this).parent().find('ul.options').slideToggle('fast')
+    false
