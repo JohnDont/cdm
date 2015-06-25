@@ -27,6 +27,10 @@ class SongsController < ApplicationController
   end
 
   def share
+    respond_to do |format|
+      format.html
+      format.js { render layout: false }
+    end
   end
 
   def vote
