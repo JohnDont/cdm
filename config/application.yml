@@ -2,10 +2,10 @@ soundcloud_id: "195cf3cb5620d21d3575a44ccb4e582e"
 soundcloud_secret: "e9bb1033a8945c9e4632a38d1a46a6c9"
 
 development:
-  facebook_app_id: "902409573131366"
-  facebook_secret: "8605a84f7ee996e42decbeea0cf60bdc"
-
-production:
   facebook_app_id: "903172893055034"
   facebook_secret: "76aa9528e382e27682f07dffc0086dc2"
+
+production:
+  facebook_app_id: "902409573131366"
+  facebook_secret: "8605a84f7ee996e42decbeea0cf60bdc"
 
