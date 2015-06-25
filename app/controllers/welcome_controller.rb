@@ -12,6 +12,10 @@ class WelcomeController < ApplicationController
         @songs = Song.latest
       end
 
+      if category_id = params['category']
+        @songs = @songs.where(category_id: category_id)
+      end
+
       @songs = @songs.page(page).per(per)
     end
 

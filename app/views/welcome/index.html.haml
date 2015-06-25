@@ -29,4 +29,4 @@
 
     .row.m-t-20
       .pagination
-        = link_to_next_page @songs, 'Next Page', remote: true, params: params.slice(:top, :sort)
+        = link_to_next_page @songs, 'Next Page', remote: true, params: params.slice(:top, :sort, :category)

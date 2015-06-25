@@ -25,7 +25,7 @@ if bodyClass.length > 0
   <% if @songs.last_page? %>
   $(bodyClass + ' .pagination').html("That's all, folks!");
   <% else %>
-  $(bodyClass + ' .pagination').html("<%=j link_to_next_page(@songs, 'Next Page', remote: true, params: params.slice(:top, :sort)) %>");
+  $(bodyClass + ' .pagination').html("<%=j link_to_next_page(@songs, 'Next Page', remote: true, params: params.slice(:top, :sort, :category)) %>");
   <% end %>
 
 <% end %>

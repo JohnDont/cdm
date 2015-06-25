@@ -25,6 +25,14 @@
               %span.icon-bar
             = link_to root_path, class: 'navbar-brand' do
               %i.logo
+
+            = link_to '#', class: 'categories-menu' do
+              %span.border
+              %span.border
+              %span.border
+              %span.arrow-down
+
+
           .holder-title.text-center
             .title
               %i.icon.icon-arrow-trend
@@ -47,14 +55,54 @@
               .user-info
                 %span.avatar= image_tag current_user.avatar.thumb
                 = link_to current_user.first_name, user_path(current_user)
-                %ul
-                  %li= link_to "Logout", destroy_user_session_path
+                - if false
+                  %ul
+                    %li= link_to "Logout", destroy_user_session_path
 
       -# %p.notice= notice
       -# %p.alert= alert
       = yield :slider
 
       - if user_signed_in? or devise_controller?
+        .container.container-categories
+          .container.holder-categories-filter
+            .row
+              .col-xs-10.categories-menu
+                %ul.clearfix.categories
+                  - Category.all.in_groups_of(6, false).each do |cats|
+                    %li
+                      - cats.each do |cat|
+                        .holder
+                          = link_to cat.name, root_path(params.slice(:top, :sort), category: cat.id), class: (params[:category] == cat.id.to_s ? 'active' : '')
+                          - if params[:category] == cat.id.to_s
+                            = link_to 'x', root_path(params.slice(:top, :sort)), class: 'remove'
+
+
+              .col-lg-2.extra-menu
+                %ul
+                  %li
+                    = link_to '#', class: 'about' do
+                      %i.icon.icon-logo-small
+                      About
+                  %li
+                    = link_to '#', class: 'blog' do
+                      %i.icon.icon-blog
+                      Blog
+                  %li
+                    = link_to '#', class: 'facebook' do
+                      %i.icon.icon-facebook-small
+                      Facebook
+                  %li
+                    = link_to '#', class: 'instagram' do
+                      %i.icon.icon-instagram-small
+                      Instagram
+                  %li
+                    = link_to '#', class: 'soundcloud' do
+                      %i.icon.icon-soundcloud-small
+                      Soundcloud
+                  - if user_signed_in?
+                    %li= link_to "Logout", destroy_user_session_path
+
         #player
         #content
           .container

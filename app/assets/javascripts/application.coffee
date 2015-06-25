@@ -25,3 +25,8 @@ $(document).ready ->
   doc.on 'click', '.holder-sort-by a.sort-menu', ->
     $(this).parent().find('ul.options').slideToggle('fast')
     false
+
+  doc.on 'click', 'a.categories-menu', ->
+    console.log 1
+    $('.container-categories .holder-categories-filter').slideToggle('fast')
+    false

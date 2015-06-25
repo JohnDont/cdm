@@ -71,6 +71,26 @@
   &.icon-share-grey {
     @include icon("icons/share-grey", 16px, 16px);;
   }
+
+  &.icon-logo-small {
+    @include icon("logo-small", 32px, 17px);
+  }
+
+  &.icon-blog {
+    @include icon("icons/blog", 19px, 19px);
+  }
+
+  &.icon-facebook-small {
+    @include icon("icons/facebook-small", 16px, 16px);
+  }
+
+  &.icon-instagram-small {
+    @include icon("icons/instagram-small", 16px, 16px);
+  }
+
+  &.icon-soundcloud-small {
+    @include icon("icons/soundcloud-small", 16px, 16px);
+  }
 }
 
 .cdm-btn {
