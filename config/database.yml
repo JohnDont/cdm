@@ -10,11 +10,11 @@ development:
 
 test:
   <<: *default
-  database: cdm_development_test
+  database: cdm_test
 
 production:
   <<: *default
-  database: cdm_development_production
+  database: cdm_production
   username: production
   password: bs36613hVxUgA20i
 
