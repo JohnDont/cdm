@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     get 'share/:id', action: :share, as: :share
   end
 
-  resources :songs, only: [:new, :create] do
+  resources :songs, only: [:new, :create, :show] do
     member do
       get :share
       post :vote

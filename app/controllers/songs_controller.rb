@@ -1,6 +1,6 @@
 class SongsController < ApplicationController
   before_action :authenticate_user!, except: [:share]
-  before_filter :load_song, only: [:share, :vote, :play]
+  before_filter :load_song, only: [:share, :vote, :play, :show]
 
   def new
     @song = Song.new

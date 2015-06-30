@@ -1,0 +1,29 @@
+.holder-show
+  %article.music-item-detailed{id: "song-item-#{@song.id}"}
+    .iframe
+      - if @song.provider == 'youtube'
+        %iframe{:allowfullscreen => "", :frameborder => "0", :height => "100%", :src => "https://www.youtube.com/embed/#{@song.provider_id}?rel=0&controls=1&showinfo=1&autoplay=0", :width => "100%"}
+      - elsif @song.provider == 'soundcloud'
+        %iframe{:frameborder => "no", :height => "100%", :scrolling => "no", :src => "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/#{@song.provider_id}&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&visual=true", :width => "100%"}
+    %header.header.clearfix
+      .title
+        %h1= @song.title
+      .actions
+
+    %section.details
+      %p.description= @song.description
+
+      %hr
+
+    %footer.footer
+      .user-info
+        .avatar
+          = image_tag @song.user.avatar.thumb
+        by
+        %span.username= link_to @song.user.full_name, user_path(@song.user)
+        in CDM
+        .time
+          = link_to song_path(@song) do
+            = time_ago_in_words @song.created_at
+            ago
+

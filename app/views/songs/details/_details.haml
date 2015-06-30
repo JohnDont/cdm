@@ -12,7 +12,7 @@
     %span.username= link_to song.user.full_name, user_path(song.user)
     in CDM
     .time
-      = link_to share_song_path(song) do
+      = link_to song_path(song) do
         = time_ago_in_words song.created_at
         ago
   %hr
