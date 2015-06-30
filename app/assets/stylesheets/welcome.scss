@@ -166,6 +166,7 @@
 
   form {
     width: 463px;
+    margin: 0 auto;
 
     .form-inputs {
       margin: 20px 0;
@@ -370,6 +371,7 @@ body.page-welcome-index {
 .holder-share {
   @extend .holder-devise-form;
   width: 463px;
+  margin: 0 auto;
 
   .holder-image {
     img {

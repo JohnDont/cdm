@@ -1,11 +1,12 @@
 .holder-share
-  %h2 Publish to my playlist
+  %h2 Share
 
   .holder-image
     = image_tag @song.image.list
 
   .title.m-t-30
-    = @song.title
+    - 3.times do
+      = @song.title
 
   .holder-share-buttons.m-t-30
     = link_to "javascript: void(0)", class: 'share-facebook', onclick: "window.open('#{fb_share_link(song_url(@song))}','sharer','toolbar=0,status=0,width=548,height=325');" do
