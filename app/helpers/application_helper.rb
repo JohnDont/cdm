@@ -34,7 +34,16 @@ module ApplicationHelper
   def facebook_shares url
     begin
       url = "http://graph.facebook.com/?id=#{url}"
-      return JSON.load(open(url))['shares']
+      return JSON.load(open(url))['shares'] || 0
+    rescue
+      return nil
+    end
+  end
+
+  def twitter_shares url
+    begin
+      url = "https://cdn.api.twitter.com/1/urls/count.json?url=#{url}"
+      return JSON.load(open(url))['count'] || 0
     rescue
       return nil
     end

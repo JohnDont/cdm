@@ -20,7 +20,7 @@
           = facebook_shares song_url(@song)
         %span.twitter-shares
           %i.icon.icon-twitter-small
-          10
+          = twitter_shares song_url(@song)
 
     %section.details
       %p.description= @song.description
