@@ -13,5 +13,6 @@ CarrierWave.configure do |config|
     config.asset_host = "http://c58218ef2ce3e71dc13c-03123b895063771b90e38e4b0667bb3b.r15.cf1.rackcdn.com"
   else
     config.storage = :file
+    config.asset_host = ActionController::Base.asset_host
   end
 end

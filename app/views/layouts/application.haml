@@ -1,3 +1,4 @@
+- meta fb: {app_id: Figaro.env.facebook_app_id}
 !!!
 %html{:lang => "en"}
   %head
@@ -5,6 +6,7 @@
     %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
     %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
     / The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags
+    = metamagic
     %title CDM Website
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => false
     = csrf_meta_tags
