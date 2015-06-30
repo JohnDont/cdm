@@ -9,6 +9,18 @@
       .title
         %h1= @song.title
       .actions
+        %span.plays
+          = @song.plays.size
+          plays
+        %span.votes
+          %i.icon.icon-heart
+          = @song.votes.size
+        %span.facebook-shares
+          %i.icon.icon-facebook-small
+          = facebook_shares song_url(@song)
+        %span.twitter-shares
+          %i.icon.icon-twitter-small
+          10
 
     %section.details
       %p.description= @song.description

@@ -17,27 +17,67 @@
       border: 1px solid #e1e1e1;
       border-top: none;
       border-bottom: none;
-      padding: 10px;
+      padding: 0 20px;
 
       .title {
         width: 60%;
         float: left;
-        font-family: $font-open-sans;
-        font-size: 24px;
-        font-weight: bold;
-        color: #333333;
-
+        h1 {
+          font-family: $font-open-sans;
+          font-size: 24px;
+          font-weight: bold;
+          color: #333333;
+        }
       }
 
       .actions {
         width: 40%;
         float: left;
+        font-family: $font-open-sans;
+        font-size: 12px;
+        font-weight: normal;
+        color: #b7b7b7;
+        text-align: right;
+        padding-top: 26px;
+
+        span.votes {
+          position: relative;
+          padding-left: 17px;
+          margin-left: 10px;
+          i.icon {
+            position: absolute;
+            top: 3px;
+            left: 0;
+          }
+        }
+
+        span.facebook-shares {
+          position: relative;
+          padding-left: 21px;
+          margin-left: 10px;
+          i.icon {
+            position: absolute;
+            top: 0;
+            left: 0;
+          }
+        }
+
+        span.twitter-shares {
+          position: relative;
+          padding-left: 22px;
+          margin-left: 10px;
+          i.icon {
+            position: absolute;
+            top: 0;
+            left: 0;
+          }
+        }
       }
     }
 
     section.details {
-      padding: 20px 0;
-      padding: 10px;
+      padding: 20px;
+      padding-top: 0;
       border: 1px solid #e1e1e1;
       border-top: none;
       border-bottom: none;
@@ -47,17 +87,19 @@
         font-size: 15px;
         font-weight: 300;
         color: #747474;
+        margin-bottom: 40px;
+        padding-top: 10px;
       }
 
       hr {
         border-color: #efefef;
-        margin-bottom: 10px;
+        margin: 0;
       }
     }
 
     footer.footer {
       position: relative;
-      padding: 10px;
+      padding: 20px;
       padding-top: 0;
       border: 1px solid #e1e1e1;
       border-top: none;

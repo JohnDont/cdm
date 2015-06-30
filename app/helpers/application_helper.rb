@@ -30,4 +30,13 @@ module ApplicationHelper
   def tw_share_link url
     "https://twitter.com/intent/tweet?url=#{url}"
   end
+
+  def facebook_shares url
+    begin
+      url = "http://graph.facebook.com/?id=#{url}"
+      return JSON.load(open(url))['shares']
+    rescue
+      return nil
+    end
+  end
 end

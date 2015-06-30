@@ -84,6 +84,10 @@
     @include icon("icons/facebook-small", 16px, 16px);
   }
 
+  &.icon-twitter-small {
+    @include icon("icons/twitter-small", 17px, 17px);
+  }
+
   &.icon-instagram-small {
     @include icon("icons/instagram-small", 16px, 16px);
   }
@@ -118,6 +122,10 @@
 
   &.icon-soundcloud-tiny {
     @include icon("icons/soundcloud-tiny", 13px, 13px);
+  }
+
+  &.icon-heart {
+    @include icon("icons/heart", 12px, 11px);
   }
 }
 
