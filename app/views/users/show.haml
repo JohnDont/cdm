@@ -1,4 +1,5 @@
 = content_for :header_title do
+  %i.icon.icon-user
   = "#{@user.full_name} uploads"
 
 .row.user-details
@@ -7,6 +8,20 @@
     .avatar
       = image_tag @user.avatar
     %h1= @user.full_name
+    = link_to 'www.example.com', '#', class: :website
+    .links
+      = link_to '#' do
+        %i.icon.icon-link-tiny
+      = link_to '#' do
+        %i.icon.icon-facebook-tiny
+      = link_to '#' do
+        %i.icon.icon-twitter-tiny
+      = link_to '#' do
+        %i.icon.icon-instagram-tiny
+      = link_to '#' do
+        %i.icon.icon-youtube-tiny
+      = link_to '#' do
+        %i.icon.icon-soundcloud-tiny
 
 .infinite-songs
   .row.m-t-20

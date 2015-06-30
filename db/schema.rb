@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150617091141) do
+ActiveRecord::Schema.define(version: 20150630071835) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -72,6 +72,12 @@ ActiveRecord::Schema.define(version: 20150617091141) do
     t.string   "avatar",                 limit: 255
     t.integer  "votes_count",            limit: 4,   default: 0
     t.integer  "plays_count",            limit: 4,   default: 0
+    t.string   "website",                limit: 255
+    t.string   "facebook_url",           limit: 255
+    t.string   "twitter_url",            limit: 255
+    t.string   "instagram_url",          limit: 255
+    t.string   "youtube_url",            limit: 255
+    t.string   "soundcloud_url",         limit: 255
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

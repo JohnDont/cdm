@@ -35,10 +35,10 @@
 
           .holder-title.text-center
             .title
-              %i.icon.icon-arrow-trend
               - if content_for :header_title
                 = yield :header_title
               - else
+                %i.icon.icon-arrow-trend
                 Most Popular
 
           #navbar.collapse.navbar-collapse

@@ -91,6 +91,34 @@
   &.icon-soundcloud-small {
     @include icon("icons/soundcloud-small", 16px, 16px);
   }
+
+  &.icon-user {
+    @include icon("icons/user", 16px, 19px);
+  }
+
+  &.icon-link-tiny {
+    @include icon("icons/link-tiny", 12px, 12px);
+  }
+
+  &.icon-facebook-tiny {
+    @include icon("icons/facebook-tiny", 13px, 12px);
+  }
+
+  &.icon-twitter-tiny {
+    @include icon("icons/twitter-tiny", 13px, 12px);
+  }
+
+  &.icon-instagram-tiny {
+    @include icon("icons/instagram-tiny", 13px, 12px);
+  }
+
+  &.icon-youtube-tiny {
+    @include icon("icons/youtube-tiny", 12px, 13px);
+  }
+
+  &.icon-soundcloud-tiny {
+    @include icon("icons/soundcloud-tiny", 13px, 13px);
+  }
 }
 
 .cdm-btn {

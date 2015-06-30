@@ -4,7 +4,7 @@
     position: relative;
 
     .border {
-      @include size(100%, 2px);
+      @include size(100%, 1px);
       background-color: #bebebe;
       position: absolute;
       top: 50px;
@@ -33,7 +33,18 @@
       font-size: 24px;
       color: #333333;
       margin-top: 10px;
-      margin-bottom: 30px;
+      margin-bottom: 0px;
+    }
+
+    a.website {
+      font-family: $font-open-sans;
+      font-size: 13px;
+      font-weight: 300;
+      color: #b7b7b7;
+    }
+
+    .links {
+      margin: 15px 0;
     }
   }
 
