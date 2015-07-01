@@ -3,7 +3,11 @@
     .row
       - Category.parents.except(:other).keys.each do |parent|
         .col-xs-2.categories-menu
-          .title= parent.humanize
+          .title
+            - if parent == "cdm"
+              = parent.humanize.upcase
+            - else
+              = parent.humanize
           %ul.clearfix.categories
             - Category.send(parent).order('name asc').each do |cat|
               %li
