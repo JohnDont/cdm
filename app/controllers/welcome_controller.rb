@@ -1,23 +1,17 @@
 class WelcomeController < ApplicationController
   def index
     if user_signed_in?
-      page = params[:page] || 1
-      per = params[:per] || 6
-      dates = sort_dates
+      load_songs
 
-      if params['top']
-        @top_offset = (page.to_i-1)*per.to_i
-        @songs = Song.top(dates.first, dates.last)
-      else
-        @songs = Song.latest
+      respond_to do |format|
+        format.html { render :explore }
+        format.js { render :explore, layout: false }
       end
-
-      if category_id = params['category']
-        @songs = @songs.where(category_id: category_id)
-      end
-
-      @songs = @songs.page(page).per(per)
     end
+  end
+
+  def explore
+    load_songs
 
     respond_to do |format|
       format.html
@@ -41,5 +35,27 @@ class WelcomeController < ApplicationController
     else
       [Date.today, Date.today-1.week]
     end
+  end
+
+  def load_songs
+    page = params[:page] || 1
+    per = params[:per] || 1
+    dates = sort_dates
+
+    if params['top']
+      @top_offset = (page.to_i-1)*per.to_i
+      @songs = Song.top(dates.first, dates.last)
+    else
+      @songs = Song.latest
+    end
+
+    if category = params['category']
+      unless category == "all"
+        category_id = Category.friendly.only(:id).find(category).id
+        @songs = @songs.where(category_id: category_id)
+      end
+    end
+
+    @songs = @songs.page(page).per(per)
   end
 end

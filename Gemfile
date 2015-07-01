@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 # ruby '2.2.1'
 
-gem 'rails', '4.2.1'
+gem 'rails', '4.2.3'
 gem 'mysql2'
 
 gem 'bootstrap-sass', '~> 3.3.4'
@@ -13,6 +13,7 @@ gem 'devise'
 gem 'faker'
 gem 'figaro'
 gem 'fog'
+gem 'friendly_id', '~> 5.1.0'
 gem 'haml-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'js-routes'

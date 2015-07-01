@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   }
   root 'welcome#index'
 
+  get 'explore' => 'welcome#explore', as: :explore
+  get 'explore/:category' => 'welcome#explore', as: :explore_category
+
   scope :upload, controller: :uploads, as: :upload do
     get :new
     post :create

@@ -162,9 +162,9 @@ nav.navbar#header {
 
   .holder-categories-filter {
     display: none;
-    position: absolute;
-    top: -8px;
-    left: 0px;
+    position: fixed;
+    top: 56px;
+    margin-left: -15px;
     z-index: $z-index-categories;
     background-color: $color-white;
     border: 1px solid #d7d7d7;
