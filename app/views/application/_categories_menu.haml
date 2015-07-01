@@ -1,16 +1,26 @@
 .container.container-categories
   .container.holder-categories-filter
     .row
-      .col-xs-10.categories-menu
-        %ul.clearfix.categories
-          - Category.all.in_groups_of(6, false).each do |cats|
-            %li
-              - cats.each do |cat|
+      - Category.parents.except(:other).keys.each do |parent|
+        .col-xs-2.categories-menu
+          .title= parent.humanize
+          %ul.clearfix.categories
+            - Category.send(parent).each do |cat|
+              %li
                 .holder
                   = link_to cat.name, explore_category_path(cat, params.slice(:top, :sort)), class: (params[:category] == cat.slug ? 'active' : '')
                   - if params[:category] == cat.slug
                     = link_to 'x', explore_path(params.slice(:top, :sort)), class: 'remove'
 
+      .col-xs-4.categories-menu
+        .title Other
+        %ul.clearfix.categories.categories-other
+          - Category.other.each do |cat|
+            %li
+              .holder
+                = link_to cat.name, explore_category_path(cat, params.slice(:top, :sort)), class: (params[:category] == cat.slug ? 'active' : '')
+                - if params[:category] == cat.slug
+                  = link_to 'x', explore_path(params.slice(:top, :sort)), class: 'remove'
 
       .col-xs-2.extra-menu
         %ul

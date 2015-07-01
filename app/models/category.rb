@@ -6,4 +6,6 @@ class Category < ActiveRecord::Base
   validates :name, presence: true
 
   friendly_id :name, use: :slugged
+
+  enum parent: [ :electronic_music, :cdm, :caribbean_music, :other ]
 end
