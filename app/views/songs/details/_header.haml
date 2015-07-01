@@ -1,11 +1,20 @@
 %header.header{style: "background-image: url(#{song.image.list});"}
   .overlay
     %span.heart
-      = link_to vote_song_path(song), remote: true, method: :post do
-        %i.icon.icon-heart-white-circle
+      - if user_signed_in?
+        = link_to vote_song_path(song), remote: true, method: :post do
+          %i.icon.icon-heart-white-circle
+      - else
+        = link_to new_user_session_path, data: {target: "#modal-sign-in", toggle: :modal}, remote: true do
+          %i.icon.icon-heart-white-circle
     %span.play
-      = link_to '#', class: 'play-song', data: {provider_id: song.provider_id, provider: song.provider, song_id: song.id} do
-        %i.icon.icon-play-white-circle
+      - if user_signed_in?
+        = link_to '#', class: 'play-song', data: {provider_id: song.provider_id, provider: song.provider, song_id: song.id} do
+          %i.icon.icon-play-white-circle
+      - else
+        = link_to new_user_session_path, class: 'play-song', data: {target: "#modal-sign-in", toggle: :modal}, remote: true do
+          %i.icon.icon-play-white-circle
+
     %span.share
       = link_to share_song_path(song), remote: true do
         %i.icon.icon-share-white-circle

@@ -39,7 +39,7 @@ class WelcomeController < ApplicationController
 
   def load_songs
     page = params[:page] || 1
-    per = params[:per] || 1
+    per = params[:per] || 6
     dates = sort_dates
 
     if params['top']
