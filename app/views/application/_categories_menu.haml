@@ -5,7 +5,7 @@
         .col-xs-2.categories-menu
           .title= parent.humanize
           %ul.clearfix.categories
-            - Category.send(parent).each do |cat|
+            - Category.send(parent).order('name asc').each do |cat|
               %li
                 .holder
                   = link_to cat.name, explore_category_path(cat, params.slice(:top, :sort)), class: (params[:category] == cat.slug ? 'active' : '')
@@ -15,7 +15,7 @@
       .col-xs-4.categories-menu
         .title Other
         %ul.clearfix.categories.categories-other
-          - Category.other.each do |cat|
+          - Category.other.order('name asc').each do |cat|
             %li
               .holder
                 = link_to cat.name, explore_category_path(cat, params.slice(:top, :sort)), class: (params[:category] == cat.slug ? 'active' : '')

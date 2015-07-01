@@ -13,7 +13,9 @@
       %span.hint
         %i *
         Select category genre
-      = f.association :category, label: false, include_blank: 'Select category genre'
+      - grouped_options = [['Group 1',["Item 1", "Item 2", "Item 3"]], ['Group 2', ["Item 1", "Item 2", "Item 3", "Item 4"]]]
+      .input.select.required.song_category
+        = f.select :category_id, grouped_options_for_select(Category.group_parents), include_blank: 'Select category genre'
 
     .form-actions.text-right
       = f.button :submit, "Submit"
