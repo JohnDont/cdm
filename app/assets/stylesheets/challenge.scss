@@ -1,0 +1,121 @@
+body.page-welcome-challenge {
+  .main-image {
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    h1 {
+      font-family: $font-open-sans;
+      font-size: 43px;
+      font-weight: 600;
+      letter-spacing: 12px;
+      color: $color-white;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      font-family: $font-open-sans;
+      font-size: 22px;
+      font-weight: lighter;
+      line-height: 30px;
+      color: $color-white;
+      margin-top: 15px;
+
+      span {
+        display: inline-block;
+        width: 440px;
+      }
+    }
+
+    &.holder-image-1 {
+      background-image: url(image-path('challenge/img1.jpeg'));
+      height: 770px;
+      padding-top: 220px;
+
+      a.upload {
+        border: 3px solid $color-white;
+        padding: 20px 35px;
+        font-family: $font-open-sans;
+        font-size: 14px;
+        font-weight: bold;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: $color-white;
+        margin-top: 40px;
+        display: inline-block;
+        letter-spacing: 3px;
+      }
+    }
+
+    &.holder-image-2 {
+      background-image: url(image-path('challenge/img2.jpeg'));
+      height: 770px;
+      padding-top: 250px;
+
+      h2 {
+        a {
+          color: $color-white;
+          text-decoration: none;
+        }
+        span {
+          width: 590px;
+        }
+      }
+    }
+
+    &.holder-image-3 {
+      background-image: url(image-path('challenge/img3.jpeg'));
+      height: 770px;
+      padding-top: 150px;
+
+      h1, h2 {
+        margin-left: 40px;
+      }
+
+      h1 {
+        width: 270px;
+      }
+
+      h2 {
+        width: 430px;
+      }
+    }
+
+    &.holder-image-4 {
+      background-image: url(image-path('challenge/img4.jpeg'));
+      height: 770px;
+      padding-top: 250px;
+    }
+  }
+
+  .rules-and-guidelines {
+    padding-top: 100px;
+    padding-bottom: 100px;
+
+    h1.rules {
+      font-family: $font-open-sans;
+      font-size: 40px;
+      font-weight: 600;
+      letter-spacing: 5px;
+      color: $color-blue;
+      text-transform: uppercase;
+      width: 300px;
+      margin: 0 auto;
+    }
+    .details {
+      font-family: $font-pt-sans;
+      font-size: 14px;
+      color: #555555;
+      line-height: 21px;
+
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .extra {
+        margin-top: 20px;
+      }
+    }
+  }
+}

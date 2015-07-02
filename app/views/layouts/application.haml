@@ -66,10 +66,11 @@
       -# %p.notice= notice
       -# %p.alert= alert
       = yield :slider
+      = yield :challenge
 
       = render partial: 'application/categories_menu'
 
-      - unless content_for?(:slider)
+      - unless content_for?(:slider) or content_for?(:challenge)
         #player
         #content
           .container

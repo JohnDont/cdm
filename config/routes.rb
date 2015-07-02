@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   get 'explore' => 'welcome#explore', as: :explore
   get 'explore/:category' => 'welcome#explore', as: :explore_category
+  get 'challenge' => 'welcome#challenge'
 
   scope :upload, controller: :uploads, as: :upload do
     get :new

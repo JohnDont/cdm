@@ -1,0 +1,62 @@
+= content_for :header_title do
+  DJ Challenge
+
+
+= content_for :challenge do
+  .main-image.holder-image-1.text-center
+    %h1.text-center DJ Challenge
+    %h2.text-center
+      %span
+        The latest new
+        %strong Caribbean Dance Music
+        using our platform
+    .text-center
+      - if user_signed_in?
+        = link_to 'Upload', new_song_path, remote: true, class: 'upload'
+      - else
+        = link_to "Upload", new_user_session_path, data: {target: "#modal-sign-in", toggle: :modal}, remote: true, class: 'upload'
+
+  .main-image.holder-image-2.text-center
+    %h1.text-center First Round
+    %h2.text-center
+      %span
+        Djs must upload their mix to the website guided by the rules stated below. Based on Votes, Mix quality & Song selection, THREE winners will be chosen to represent their country at the Caribbean Dance Music Conference.
+    %h2.text-center
+      %span
+        - if user_signed_in?
+          = link_to 'Upload Now >', new_song_path, remote: true
+        - else
+          = link_to "Upload Now >", new_user_session_path, data: {target: "#modal-sign-in", toggle: :modal}, remote: true
+
+  .main-image.holder-image-3
+    .container
+      .col-xs-12
+        %h1 Second Round
+        %h2
+          %span
+            The THREE winners will attend the 4 day Conference and will each play a set at the main event on Saturday 8th, August.
+
+
+  .main-image.holder-image-4.text-center
+    %h1.text-center FinalRound
+    %h2.text-center
+      %span
+        The final round is a head to head challenge where each Dj will be allowed to play 3 tracks. The Dj that can win over the crowd and get the greatest crowd response WINS.
+
+  .container.rules-and-guidelines
+    .row
+      .col-xs-12.col-md-6
+        %h1.rules Rules & Guidelines
+      .col-xs-12.col-md-6.details
+        %ul
+          %li 20 - 30 min mix
+          %li Tracklist MUST be provided
+          %li Original content is encouraged
+          %li Up to 3 mixes can be submitted by each Dj
+
+        .extra
+          %strong Additional
+          %br
+          Winners must be over 18
+          %br
+          Flight & Accommodation provided for Regional Winners
