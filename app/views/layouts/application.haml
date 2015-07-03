@@ -36,7 +36,7 @@
               Explore
               %span.arrow-down
 
-            = link_to 'DJ Challenge', challenge_path, class: 'challenge ' + (current_page?(action: :challenge) ? 'active' : '')
+            = link_to 'DJ Challenge', challenge_path, class: "challenge #{challenge_link_extra_class}"
 
           .holder-title.text-center
             .title

@@ -50,6 +50,10 @@ module ApplicationHelper
   end
 
   def categories_menu_extra_class
-    (current_page?(action: :explore) && params[:category] != 'all' && !params[:category].blank?) ? 'active' : ''
+    (current_page?(controller: :welcome, action: :explore) && params[:category] != 'all' && !params[:category].blank?) ? 'active' : ''
+  end
+
+  def challenge_link_extra_class
+    (current_page?(controller: :welcome, action: :challenge) ? 'active' : '')
   end
 end
