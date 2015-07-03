@@ -67,10 +67,11 @@
       -# %p.alert= alert
       = yield :slider
       = yield :challenge
+      = yield :about
 
       = render partial: 'application/categories_menu'
 
-      - unless content_for?(:slider) or content_for?(:challenge)
+      - unless content_for?(:slider) or content_for?(:challenge) or content_for?(:about)
         #player
         #content
           .container
@@ -84,7 +85,7 @@
             .links
               = link_to root_path, class: 'logo-link'  do
                 %i.logo
-              = link_to 'About', '#'
+              = link_to 'About', about_path
               = link_to 'Blog', '#'
               @2015 CDM
           .col-xs-6

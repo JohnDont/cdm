@@ -1,0 +1,166 @@
+body.page-welcome-about {
+  .panel-one {
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    background-image: url(image-path('about/img1.jpeg'));
+    height: 777px;
+
+    .holder-logo {
+      padding-top: 170px;
+    }
+
+    h1 {
+      font-family: $font-open-sans;
+      font-size: 75px;
+      font-weight: bold;
+      letter-spacing: 11px;
+      color: $color-white;
+      text-transform: uppercase;
+      width: 670px;
+      margin: 65px auto 0 auto;
+    }
+
+    .info {
+      margin-top: 100px;
+      .col {
+        position: relative;
+        padding-left: 90px;
+
+        i.icon {
+          position: absolute;
+          top: -4px;
+          left: 0;
+          background-size: 50px auto;
+
+          &.icon-star {
+            background-size: 60px auto;
+          }
+        }
+
+        h2 {
+          font-family: $font-open-sans;
+          font-size: 36px;
+          font-weight: bold;
+          color: $color-white;
+          text-transform: uppercase;
+        }
+
+        p {
+          width: 225px;
+          font-family: $font-open-sans;
+          font-size: 16px;
+          font-weight: 300;
+          color: $color-white;
+        }
+      }
+    }
+  }
+
+  .panel-two {
+    height: 570px;
+    .image {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-image: url(image-path('about/img2.jpeg'));
+      height: 100%;
+    }
+
+    .details {
+      background-color: #5b0dab;
+      height: 100%;
+      padding: 100px 80px 0 80px;
+
+      h2 {
+        font-family: $font-open-sans;
+        font-size: 65px;
+        font-weight: 100;
+        color: $color-white;
+        text-transform: uppercase;
+        width: 400px;
+        margin-bottom: 40px;
+      }
+
+      p {
+        font-family: $font-open-sans;
+        font-size: 15px;
+        font-weight: 100;
+        color: $color-white;
+        width: 400px;
+      }
+    }
+  }
+
+  .panel-three {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(image-path('about/img3.jpeg'));
+    height: 790px;
+    padding-top: 200px;
+
+    h2 {
+      font-family: $font-open-sans;
+      font-size: 65px;
+      font-weight: 100;
+      color: $color-white;
+      text-transform: uppercase;
+      width: 700px;
+      margin: 0 auto;
+      margin-bottom: 40px;
+    }
+
+    p {
+      font-family: $font-open-sans;
+      font-size: 24px;
+      font-weight: 100;
+      color: $color-white;
+      width: 700px;
+      margin: 0 auto;
+    }
+  }
+
+  .panel-four {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(image-path('challenge/img1.jpeg'));
+    height: 770px;
+    padding-top: 220px;
+
+    h1 {
+      font-family: $font-open-sans;
+      font-size: 43px;
+      font-weight: 600;
+      letter-spacing: 12px;
+      color: $color-white;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      font-family: $font-open-sans;
+      font-size: 22px;
+      font-weight: lighter;
+      line-height: 30px;
+      color: $color-white;
+      margin-top: 15px;
+
+      span {
+        display: inline-block;
+        width: 440px;
+      }
+    }
+
+    a.more {
+      border: 3px solid $color-white;
+      padding: 20px 35px;
+      font-family: $font-open-sans;
+      font-size: 14px;
+      font-weight: bold;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: $color-white;
+      margin-top: 40px;
+      display: inline-block;
+      letter-spacing: 3px;
+    }
+  }
+}

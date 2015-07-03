@@ -2,6 +2,10 @@
   @include icon("logo", 77px, 41px);
 }
 
+.logo-white {
+  @include icon("logo-white", 100px, 53px);
+}
+
 .icon {
   display: inline-block;
   background-repeat: no-repeat;
