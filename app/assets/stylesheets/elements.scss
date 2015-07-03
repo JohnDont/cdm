@@ -6,6 +6,10 @@
   @include icon("logo-white", 100px, 53px);
 }
 
+.logo-slim {
+  @include icon("logo-slim", 59px, 25px);
+}
+
 .icon {
   display: inline-block;
   background-repeat: no-repeat;
@@ -37,6 +41,18 @@
 
   &.icon-instagram-white {
     @include icon("icons/instagram-white", 24px, 24px);
+  }
+
+  &.icon-soundcloud-white-tiny {
+    @include icon("icons/soundcloud-white-tiny", 17px, 17px);
+  }
+
+  &.icon-facebook-white-tiny {
+    @include icon("icons/facebook-white-tiny", 17px, 17px);
+  }
+
+  &.icon-instagram-white-tiny {
+    @include icon("icons/instagram-white-tiny", 17px, 17px);
   }
 
   &.icon-arrow-slider-right {

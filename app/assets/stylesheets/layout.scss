@@ -314,8 +314,8 @@ footer#footer {
 
   .links {
     position: relative;
-    padding-left: 107px;
-    padding-top: 41px;
+    padding-left: 80px;
+    padding-top: 18px;
     color: #8c8989;
     font-family: $font-open-sans;
     font-size: 12px;
@@ -329,17 +329,18 @@ footer#footer {
 
     .logo-link {
       position: absolute;
-      top: 27px;
+      top: 12px;
       left: 0;
     }
   }
 
   .socials {
-    padding-top: 37px;
+    padding-top: 17px;
     text-align: right;
 
     a {
-      margin-right: 9px;
+      @include size(17px, 17px);
+      margin-right: 1px;
     }
   }
 }

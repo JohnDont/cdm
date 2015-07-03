@@ -81,22 +81,21 @@
       .push
     %footer#footer
       .container
-        .row
-          .col-xs-6
-            .links
-              = link_to root_path, class: 'logo-link'  do
-                %i.logo
-              = link_to 'About', about_path
-              = link_to 'Blog', '#'
-              @2015 CDM
-          .col-xs-6
-            .socials
-              = link_to 'https://www.facebook.com/cdmgeneration', target: :blank do
-                %i.icon.icon-facebook-white
-              = link_to '#' do
-                %i.icon.icon-twitter-white
-              = link_to 'https://instagram.com/cdmgeneration/', target: :blank do
-                %i.icon.icon-instagram-white
+        .col-xs-6
+          .links
+            = link_to root_path, class: 'logo-link'  do
+              %i.logo-slim
+            = link_to 'About', about_path
+            = link_to 'Blog', '#'
+            @2015 CDM
+        .col-xs-6
+          .socials
+            = link_to 'https://www.facebook.com/cdmgeneration', target: :blank do
+              %i.icon.icon-facebook-white-tiny
+            = link_to 'https://soundcloud.com/cdmgeneration', target: :blank do
+              %i.icon.icon-soundcloud-white-tiny
+            = link_to 'https://instagram.com/cdmgeneration/', target: :blank do
+              %i.icon.icon-instagram-white-tiny
 
     - unless user_signed_in?
       = render partial: 'application/modal_sign_up'
