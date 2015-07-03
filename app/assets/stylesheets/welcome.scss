@@ -322,6 +322,13 @@ body.page-welcome-index, body.page-welcome-explore {
 .holder-upload-form {
   @extend .holder-devise-form;
 
+  .provider-error {
+    color: #d9534f;
+    a {
+      color: $color-blue;
+    }
+  }
+
   input {
     @include placeholder {
       color: $color-dark-grey !important;

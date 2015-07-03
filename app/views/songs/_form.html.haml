@@ -4,6 +4,12 @@
 
     = f.error_notification
 
+    - if song.errors[:provider_id].present?
+      .provider-error
+        = song.errors[:provider_id].join
+        = surround '(', ')' do
+          = link_to 'view', song_path(song.original_song)
+
     .form-inputs
       %span.hint
         %i *
@@ -13,9 +19,9 @@
       %span.hint
         %i *
         Select category genre
-      - grouped_options = [['Group 1',["Item 1", "Item 2", "Item 3"]], ['Group 2', ["Item 1", "Item 2", "Item 3", "Item 4"]]]
+
       .input.select.required.song_category
-        = f.select :category_id, grouped_options_for_select(Category.group_parents), include_blank: 'Select category genre'
+        = f.select :category_id, grouped_options_for_select(Category.group_parents, song.category_id), include_blank: 'Select category genre'
 
     .form-actions.text-right
       = f.button :submit, "Submit"

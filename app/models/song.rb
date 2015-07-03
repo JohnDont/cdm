@@ -9,7 +9,7 @@ class Song < ActiveRecord::Base
   mount_uploader :image, SongImageUploader
 
   validates :user, :category, :url, :provider, :provider_id, presence: true
-  validates_uniqueness_of :provider_id, scope: :provider
+  validates_uniqueness_of :provider_id, scope: :provider, message: 'This track already has been added'
 
   scope :latest, -> { order(created_at: :desc) }
   scope :top, ->(start_date=nil, end_date=nil) {
@@ -33,6 +33,10 @@ class Song < ActiveRecord::Base
       .order('songs_score DESC, songs.votes_count DESC, songs.plays_count DESC')
     end
     }
+
+  def original_song
+    Song.where(provider: provider, provider_id: provider_id).order(created_at: :desc).first
+  end
 
   private
   def prepare
