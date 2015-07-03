@@ -28,7 +28,7 @@
             = link_to root_path, class: 'navbar-brand' do
               %i.logo
 
-            = link_to '#', class: 'categories-menu' do
+            = link_to '#', class: "categories-menu #{categories_menu_extra_class}" do
               .holder-borders
                 %span.border
                 %span.border
@@ -36,6 +36,7 @@
               Explore
               %span.arrow-down
 
+            = link_to 'DJ Challenge', challenge_path, class: 'challenge ' + (current_page?(action: :challenge) ? 'active' : '')
 
           .holder-title.text-center
             .title

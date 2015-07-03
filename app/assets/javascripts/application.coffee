@@ -27,5 +27,6 @@ $(document).ready ->
     false
 
   doc.on 'click', 'a.categories-menu', ->
+    $(this).toggleClass 'active'
     $('.container-categories .holder-categories-filter').slideToggle('fast')
     false

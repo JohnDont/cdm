@@ -48,4 +48,8 @@ module ApplicationHelper
       return nil
     end
   end
+
+  def categories_menu_extra_class
+    (current_page?(action: :explore) && params[:category] != 'all' && !params[:category].blank?) ? 'active' : ''
+  end
 end
