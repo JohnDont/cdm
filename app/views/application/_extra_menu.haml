@@ -1,0 +1,37 @@
+%ul
+  - unless user_signed_in?
+    - if !devise_controller?
+      %li.hidden-sm.hidden-md.hidden-lg
+        = link_to "Sign Up", new_user_registration_path, data: {target: "#modal-sign-up", toggle: :modal}, remote: true
+      %li.hidden-sm.hidden-md.hidden-lg
+        = link_to "Login", new_user_session_path, data: {target: "#modal-sign-in", toggle: :modal}, remote: true
+    - else
+      %li.hidden-sm.hidden-md.hidden-lg
+        = link_to "Sign Up", new_user_registration_path
+      %li.hidden-sm.hidden-md.hidden-lg
+        = link_to "Login", new_user_session_path
+
+  %li
+    = link_to about_path, class: 'about' do
+      %i.icon.icon-logo-small
+      About
+  %li
+    = link_to '#', class: 'blog' do
+      %i.icon.icon-blog
+      Blog
+  %li
+    = link_to 'https://www.facebook.com/cdmgeneration', target: :blank, class: 'facebook' do
+      %i.icon.icon-facebook-small
+      Facebook
+  %li
+    = link_to 'https://instagram.com/cdmgeneration/', target: :blank, class: 'instagram' do
+      %i.icon.icon-instagram-small
+      Instagram
+  %li
+    = link_to 'https://soundcloud.com/cdmgeneration', target: :blank, class: 'soundcloud' do
+      %i.icon.icon-soundcloud-small
+      Soundcloud
+  %li
+    = link_to "DJ Challenge", challenge_path
+  - if user_signed_in?
+    %li= link_to "Logout", destroy_user_session_path

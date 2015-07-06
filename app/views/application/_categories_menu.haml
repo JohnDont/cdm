@@ -1,8 +1,10 @@
 .container.container-categories
   .container.holder-categories-filter
     .row
+      .col-xs-4.col-sm-2.extra-menu.hidden-sm.hidden-md.hidden-lg
+        = render partial: 'application/extra_menu'
       - Category.parents.except(:other).keys.each do |parent|
-        .col-xs-2.categories-menu
+        .col-xs-4.col-sm-2.categories-menu
           .title
             - if parent == "cdm"
               = parent.humanize.upcase
@@ -16,7 +18,7 @@
                   - if params[:category] == cat.slug
                     = link_to 'x', explore_path(params.slice(:top, :sort)), class: 'remove'
 
-      .col-xs-4.categories-menu
+      .col-xs-8.col-sm-4.categories-menu
         .title Other
         %ul.clearfix.categories.categories-other
           - Category.other.order('name asc').each do |cat|
@@ -26,29 +28,5 @@
                 - if params[:category] == cat.slug
                   = link_to 'x', explore_path(params.slice(:top, :sort)), class: 'remove'
 
-      .col-xs-2.extra-menu
-        %ul
-          %li
-            = link_to about_path, class: 'about' do
-              %i.icon.icon-logo-small
-              About
-          %li
-            = link_to '#', class: 'blog' do
-              %i.icon.icon-blog
-              Blog
-          %li
-            = link_to 'https://www.facebook.com/cdmgeneration', target: :blank, class: 'facebook' do
-              %i.icon.icon-facebook-small
-              Facebook
-          %li
-            = link_to 'https://instagram.com/cdmgeneration/', target: :blank, class: 'instagram' do
-              %i.icon.icon-instagram-small
-              Instagram
-          %li
-            = link_to 'https://soundcloud.com/cdmgeneration', target: :blank, class: 'soundcloud' do
-              %i.icon.icon-soundcloud-small
-              Soundcloud
-          %li
-            = link_to "DJ Challenge", challenge_path
-          - if user_signed_in?
-            %li= link_to "Logout", destroy_user_session_path
+      .col-xs-4.col-sm-2.extra-menu.hidden-xs
+        = render partial: 'application/extra_menu'
