@@ -53,6 +53,14 @@
 }
 
 
+@media (max-width: 560px) {
+  .swiper-container .swiper-slide h2 span {
+    width: auto;
+    padding: 0 70px;
+  }
+}
+
+
 @media (max-width: $screen-xs-max) {
   nav.navbar#header .main-container .navbar-header {
     margin: 0;
@@ -81,4 +89,43 @@
       }
     }
   }
+
+  .swiper-container .swiper-slide .holder-icon {
+    margin-top: 35px;
+
+    i.icon {
+      background-size: 50px auto;
+    }
+  }
+
+  .swiper-container .swiper-slide {
+    h1 {
+      font-size: 37px;
+      margin-top: 0;
+    }
+
+    h2 span {
+      font-size: 18px;
+    }
+
+     .holder-border {
+      margin: 10px 0;
+    }
+
+    .holder-facebook-connect {
+      margin-top: 10px;
+      padding: 0;
+
+      a.facebook-connect {
+        padding: 10px;
+        font-size: 12px;
+      }
+    }
+
+    .alt-hint {
+      font-size: 11px;
+    }
+  }
 }
+
+

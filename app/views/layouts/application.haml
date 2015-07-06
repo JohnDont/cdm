@@ -76,14 +76,14 @@
       .push
     %footer#footer
       .container
-        .col-xs-6
+        .col-xs-8
           .links
             = link_to root_path, class: 'logo-link'  do
               %i.logo-slim
             = link_to 'About', about_path
             = link_to 'Blog', '#'
-            @2015 CDM
-        .col-xs-6
+            %span.hidden-xs @2015 CDM
+        .col-xs-4
           .socials
             = link_to 'https://www.facebook.com/cdmgeneration', target: :blank do
               %i.icon.icon-facebook-white-tiny
