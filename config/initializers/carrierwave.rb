@@ -5,12 +5,12 @@ CarrierWave.configure do |config|
 
     config.fog_credentials = {
       :provider           => 'Rackspace',
-      :rackspace_username => 'eesamohammed',
-      :rackspace_api_key  => '3de2927ce9254f2607a9ffd599a70bcf',
+      :rackspace_username => 'cdmgeneration',
+      :rackspace_api_key  => 'c230660445ab4019aee077ad844d6ece',
       :rackspace_region   => 'dfw'
     }
-    config.fog_directory = "cdm_demo"
-    config.asset_host = "http://c58218ef2ce3e71dc13c-03123b895063771b90e38e4b0667bb3b.r15.cf1.rackcdn.com"
+    config.fog_directory = "cdm-production"
+    config.asset_host = "http://74f83991cf514c4e6663-dc57254a24758b4af0852933688cfe33.r43.cf1.rackcdn.com"
   else
     config.storage = :file
     config.asset_host = ActionController::Base.asset_host
