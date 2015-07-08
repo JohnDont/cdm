@@ -105,6 +105,7 @@
       border-top: none;
 
       .user-info {
+        float: left;
         position: relative;
         min-height: 50px;
         padding-left: 60px;
@@ -139,6 +140,20 @@
 
           &:hover img {
             @include transform(scale(1.2));
+          }
+        }
+      }
+
+      .actions {
+        float: right;
+        a.play {
+          position: relative;
+          padding-left: 32px;
+
+          i.icon {
+            position: absolute;
+            top: 8px;
+            left: 10px;
           }
         }
       }

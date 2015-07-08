@@ -6,6 +6,7 @@
 
 $("article.music-item#song-item-<%= @song.id %> .votes").html "<%= @song.votes.size %>"
 $("#player #song-player-<%= @song.id %> .votes").html "<%= @song.votes.size %>"
+$("body.page-songs-show #song-item-<%= @song.id %> header.header span.votes span.text").html "<%= @song.votes.size %>"
 <% msg = "Thank you for your vote!" %>
 
 <% end %>

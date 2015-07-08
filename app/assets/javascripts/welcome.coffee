@@ -16,19 +16,6 @@ $(document).ready ->
     $('#new_song input').prop("disabled", true)
     $('#modal-upload').modal('hide')
 
-  doc.on 'click', 'article.music-item a.play-song', ->
-    event.preventDefault()
-
-    provider = $(this).data('provider')
-    providerID = $(this).data('provider-id')
-    songID = $(this).data('song-id')
-    timeKey = 'd2'+songID
-
-    $('article.music-item .overlay').removeClass('active')
-    $(this).parents('article.music-item').find('.overlay').addClass('active')
-
-    $.get Routes.play_song_path(songID)
-
   doc.on 'click', '#player a.close-player', ->
     $('#player').fadeOut()
     setTimeout (->

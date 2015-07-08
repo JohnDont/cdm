@@ -160,13 +160,13 @@
   text-decoration: none;
   @include transition(border-color 0.3s ease-in-out);
 
-  &:hover {
+  &:hover, &:focus, &:active {
     border-color: $color-dark-grey;
     text-decoration: none;
     color: $color-dark-grey;
   }
 
-  &.active {
+  &.active, {
     color: $color-white;
     background-color: $color-blue;
     border-color: $color-blue;

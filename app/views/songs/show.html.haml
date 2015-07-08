@@ -3,20 +3,17 @@
 .holder-show
   %article.music-item-detailed{id: "song-item-#{@song.id}"}
     .iframe
-      - if @song.provider == 'youtube'
-        %iframe{:allowfullscreen => "", :frameborder => "0", :height => "100%", :src => "https://www.youtube.com/embed/#{@song.provider_id}?rel=0&controls=1&showinfo=1&autoplay=0", :width => "100%"}
-      - elsif @song.provider == 'soundcloud'
-        %iframe{:frameborder => "no", :height => "100%", :scrolling => "no", :src => "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/#{@song.provider_id}&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&visual=true", :width => "100%"}
+      = image_tag @song.image.list, width: '100%', height: 'auto'
     %header.header.clearfix
       .title
         %h1= @song.title
       .actions
         %span.plays
-          = @song.plays.size
+          %span.text= @song.plays.size
           plays
         %span.votes
           %i.icon.icon-heart
-          = @song.votes.size
+          %span.text= @song.votes.size
         %span.facebook-shares
           %i.icon.icon-facebook-small
           = facebook_shares song_url(@song)
@@ -29,7 +26,7 @@
 
       %hr
 
-    %footer.footer
+    %footer.footer.clearfix
       .user-info
         .avatar
           = image_tag @song.user.avatar.thumb
@@ -40,4 +37,22 @@
           = link_to song_path(@song) do
             = time_ago_in_words @song.created_at
             ago
+      .actions
+        - if user_signed_in?
+          = link_to play_song_path(@song, song_profile: true), class: 'cdm-btn play m-r-10 play-song', remote: true do
+            %i.icon.icon-play-grey
+            Play
+
+          = link_to vote_song_path(@song), class: 'm-r-10', remote: true, method: :post do
+            %i.icon.icon-heart-grey
+        - else
+          = link_to new_user_session_path, class: 'cdm-btn play m-r-10 play-song', data: {target: "#modal-sign-in", toggle: :modal}, remote: true do
+            %i.icon.icon-play-grey
+            Play
+
+          = link_to new_user_session_path, class: 'm-r-10', data: {target: "#modal-sign-in", toggle: :modal}, remote: true do
+            %i.icon.icon-heart-grey
+
+        = link_to share_song_path(@song), remote: true do
+          %i.icon.icon-share-grey
 

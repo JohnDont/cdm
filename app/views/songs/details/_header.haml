@@ -9,7 +9,7 @@
           %i.icon.icon-heart-white-circle
     %span.play
       - if user_signed_in?
-        = link_to '#', class: 'play-song', data: {provider_id: song.provider_id, provider: song.provider, song_id: song.id} do
+        = link_to play_song_path(song), class: 'play-song', remote: true do
           %i.icon.icon-play-white-circle
       - else
         = link_to new_user_session_path, class: 'play-song', data: {target: "#modal-sign-in", toggle: :modal}, remote: true do

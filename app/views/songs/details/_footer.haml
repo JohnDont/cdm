@@ -1,5 +1,5 @@
 %footer.footer
-  = link_to '#', class: 'cdm-btn play m-r-10 play-song', data: {provider_id: song.provider_id, provider: song.provider, song_id: song.id} do
+  = link_to play_song_path(song), class: 'cdm-btn play m-r-10 play-song', remote: true do
     %i.icon.icon-play-grey
     Play
   %span.plays= song.plays.size
