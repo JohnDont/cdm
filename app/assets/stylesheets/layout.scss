@@ -312,6 +312,21 @@ nav.navbar#header {
         font-weight: normal;
         color: #747474;
       }
+
+      span.or {
+        font-family: $font-pt-sans;
+        font-size: 14px;
+        font-weight: normal;
+        color: #747474;
+        margin: 0 20px;
+      }
+
+      a.all-genres {
+        font-family: $font-pt-sans;
+        font-size: 14px;
+        font-weight: bold;
+        color: $color-blue;
+      }
     }
   }
 }

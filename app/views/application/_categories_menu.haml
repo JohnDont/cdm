@@ -5,6 +5,10 @@
         = check_box_tag :for_challenge, true, params[:for_challenge].present?
         = label_tag :for_challenge, "Include only DJ Competition tracks"
 
+        %span.or or view
+
+        = link_to 'All Genres competition tracks ', explore_path(for_challenge: true), class: 'all-genres'
+
       .col-xs-4.col-sm-2.extra-menu.hidden-sm.hidden-md.hidden-lg
         = render partial: 'application/extra_menu'
       - Category.parents.except(:other).keys.each do |parent|
