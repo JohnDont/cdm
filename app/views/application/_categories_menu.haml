@@ -1,6 +1,10 @@
 .container.container-categories
   .container.holder-categories-filter
     .row
+      .holder-for-challenge-filter
+        = check_box_tag :for_challenge, true, params[:for_challenge].present?
+        = label_tag :for_challenge, "Include only DJ Competition tracks"
+
       .col-xs-4.col-sm-2.extra-menu.hidden-sm.hidden-md.hidden-lg
         = render partial: 'application/extra_menu'
       - Category.parents.except(:other).keys.each do |parent|
@@ -14,9 +18,9 @@
             - Category.send(parent).order('name asc').each do |cat|
               %li
                 .holder
-                  = link_to cat.name, explore_category_path(cat, params.slice(:top, :sort)), class: (params[:category] == cat.slug ? 'active' : '')
+                  = link_to cat.name, explore_category_path(cat, params.slice(:top, :sort, :for_challenge).merge({e: 1})), class: (params[:category] == cat.slug ? 'active' : '')
                   - if params[:category] == cat.slug
-                    = link_to 'x', explore_path(params.slice(:top, :sort)), class: 'remove'
+                    = link_to 'x', explore_path(params.slice(:top, :sort, :for_challenge)), class: 'remove'
 
       .col-xs-8.col-sm-4.categories-menu
         .title Other
@@ -24,9 +28,9 @@
           - Category.other.order('name asc').each do |cat|
             %li
               .holder
-                = link_to cat.name, explore_category_path(cat, params.slice(:top, :sort)), class: (params[:category] == cat.slug ? 'active' : '')
+                = link_to cat.name, explore_category_path(cat, params.slice(:top, :sort, :for_challenge).merge({e: 1})), class: (params[:category] == cat.slug ? 'active' : '')
                 - if params[:category] == cat.slug
-                  = link_to 'x', explore_path(params.slice(:top, :sort)), class: 'remove'
+                  = link_to 'x', explore_path(params.slice(:top, :sort, :for_challenge)), class: 'remove'
 
       .col-xs-4.col-sm-2.extra-menu.hidden-xs
         = render partial: 'application/extra_menu'

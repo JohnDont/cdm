@@ -30,3 +30,13 @@ $(document).ready ->
     $(this).toggleClass 'active'
     $('.container-categories .holder-categories-filter').slideToggle('fast')
     false
+
+  doc.on 'change', '.holder-for-challenge-filter input[type="checkbox"]', ->
+    if $(this).is(':checked')
+      $.each $(".categories-menu ul a"), (i, a) ->
+        href = $(a).attr('href')
+        $(a).attr('href', href + '&for_challenge=true')
+    else
+      $.each $(".categories-menu ul a"), (i, a) ->
+        href = $(a).attr('href')
+        $(a).attr('href', href.replace(/&?for_challenge=([^&]$|[^&]*)/i, ""))

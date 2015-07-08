@@ -11,6 +11,7 @@ class Song < ActiveRecord::Base
   validates :user, :category, :url, :provider, :provider_id, presence: true
   validates_uniqueness_of :provider_id, scope: :provider, message: 'This track already has been added'
 
+
   scope :latest, -> { order(created_at: :desc) }
   scope :top, ->(start_date=nil, end_date=nil) {
     if start_date.present? && end_date.present?
@@ -33,6 +34,7 @@ class Song < ActiveRecord::Base
       .order('songs_score DESC, songs.votes_count DESC, songs.plays_count DESC')
     end
     }
+  scope :for_challenge, -> { where(for_challenge: true) }
 
   def original_song
     Song.where(provider: provider, provider_id: provider_id).order(created_at: :desc).first

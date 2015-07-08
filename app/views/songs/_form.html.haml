@@ -24,4 +24,5 @@
         = f.select :category_id, grouped_options_for_select(Category.group_parents, song.category_id), include_blank: 'Select category genre'
 
     .form-actions.text-right
+      = f.input :for_challenge, as: :boolean, label: 'Submit to DJ Competition'
       = f.button :submit, "Submit"

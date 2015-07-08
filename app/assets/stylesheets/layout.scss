@@ -299,6 +299,20 @@ nav.navbar#header {
         }
       }
     }
+
+    .holder-for-challenge-filter {
+      position: absolute;
+      top: 10px;
+      left: 20px;
+      z-index: 1;
+
+      label {
+        font-family: $font-pt-sans;
+        font-size: 14px;
+        font-weight: normal;
+        color: #747474;
+      }
+    }
   }
 }
 

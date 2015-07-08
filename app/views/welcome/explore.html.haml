@@ -12,11 +12,11 @@
           %span.arrow-down
 
         %ul.options
-          %li= link_to 'Today', explore_category_path(param_category, params.slice(:top).merge({sort: :today})), class: (params[:sort] == 'today' ? 'active' : nil)
-          %li= link_to 'Last Week', explore_category_path(param_category, params.slice(:top).merge({sort: :last_week})), class: ((params[:sort] == 'last_week' or params[:sort].blank?) ? 'active' : nil)
-          %li= link_to 'Last Month', explore_category_path(param_category, params.slice(:top).merge({sort: :last_month})), class: (params[:sort] == 'last_month' ? 'active' : nil)
-          %li= link_to 'Last Year', explore_category_path(param_category, params.slice(:top).merge({sort: :last_year})), class: (params[:sort] == 'last_year' ? 'active' : nil)
-          %li= link_to 'Lifetime', explore_category_path(param_category, params.slice(:top).merge({sort: :lifetime})), class: (params[:sort] == 'lifetime' ? 'active' : nil)
+          %li= link_to 'Today', explore_category_path(param_category, params.slice(:top, :for_challenge).merge({sort: :today})), class: (params[:sort] == 'today' ? 'active' : nil)
+          %li= link_to 'Last Week', explore_category_path(param_category, params.slice(:top, :for_challenge).merge({sort: :last_week})), class: ((params[:sort] == 'last_week' or params[:sort].blank?) ? 'active' : nil)
+          %li= link_to 'Last Month', explore_category_path(param_category, params.slice(:top, :for_challenge).merge({sort: :last_month})), class: (params[:sort] == 'last_month' ? 'active' : nil)
+          %li= link_to 'Last Year', explore_category_path(param_category, params.slice(:top, :for_challenge).merge({sort: :last_year})), class: (params[:sort] == 'last_year' ? 'active' : nil)
+          %li= link_to 'Lifetime', explore_category_path(param_category, params.slice(:top, :for_challenge).merge({sort: :lifetime})), class: (params[:sort] == 'lifetime' ? 'active' : nil)
 
 .infinite-songs
   .row.m-t-20
@@ -26,4 +26,4 @@
 
   .row.m-t-20
     .pagination
-      = link_to_next_page @songs, 'Next Page', remote: true, params: params.slice(:top, :sort, :category)
+      = link_to_next_page @songs, 'Next Page', remote: true, params: params.slice(:top, :sort, :category, :for_challenge)

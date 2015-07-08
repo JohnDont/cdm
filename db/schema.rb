@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150701192917) do
+ActiveRecord::Schema.define(version: 20150707154843) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -47,18 +47,19 @@ ActiveRecord::Schema.define(version: 20150701192917) do
   add_index "plays", ["user_id"], name: "index_plays_on_user_id", using: :btree
 
   create_table "songs", force: :cascade do |t|
-    t.string   "image",       limit: 255
-    t.string   "title",       limit: 255
-    t.text     "description", limit: 65535
-    t.integer  "user_id",     limit: 4
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
-    t.string   "provider",    limit: 255
-    t.string   "provider_id", limit: 255
-    t.string   "url",         limit: 255
-    t.integer  "votes_count", limit: 4,     default: 0
-    t.integer  "category_id", limit: 4
-    t.integer  "plays_count", limit: 4,     default: 0
+    t.string   "image",         limit: 255
+    t.string   "title",         limit: 255
+    t.text     "description",   limit: 65535
+    t.integer  "user_id",       limit: 4
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+    t.string   "provider",      limit: 255
+    t.string   "provider_id",   limit: 255
+    t.string   "url",           limit: 255
+    t.integer  "votes_count",   limit: 4,     default: 0
+    t.integer  "category_id",   limit: 4
+    t.integer  "plays_count",   limit: 4,     default: 0
+    t.integer  "for_challenge", limit: 4,     default: 0
   end
 
   add_index "songs", ["category_id"], name: "index_songs_on_category_id", using: :btree
