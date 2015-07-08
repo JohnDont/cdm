@@ -50,10 +50,18 @@ module ApplicationHelper
   end
 
   def categories_menu_extra_class
+    return '' if devise_controller?
     (current_page?(controller: :welcome, action: :explore) && params[:category] != 'all' && !params[:category].blank?) ? 'active' : ''
   end
 
   def challenge_link_extra_class
+    return '' if devise_controller?
     (current_page?(controller: :welcome, action: :challenge) ? 'active' : '')
   end
+
+  def url_with_protocol url
+    return '#' if url.blank?
+    /^http/i.match(url) ? url : "http://#{url}"
+  end
+
 end

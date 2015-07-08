@@ -7,20 +7,26 @@
     .border
     .avatar
       = image_tag @user.avatar
-    %h1= @user.full_name
-    = link_to 'www.example.com', '#', class: :website
+    %h1
+      = @user.full_name
+      - if @user == current_user
+        = link_to edit_user_registration_path, class: 'edit' do
+          = surround '(', ')' do
+            edit profile
+    - if @user.website
+      = link_to @user.website, url_with_protocol(@user.website), class: :website
     .links
-      = link_to '#' do
+      = link_to url_with_protocol(@user.website), target: :blank do
         %i.icon.icon-link-tiny
-      = link_to '#' do
+      = link_to url_with_protocol(@user.facebook_url), target: :blank do
         %i.icon.icon-facebook-tiny
-      = link_to '#' do
+      = link_to url_with_protocol(@user.twitter_url), target: :blank do
         %i.icon.icon-twitter-tiny
-      = link_to '#' do
+      = link_to url_with_protocol(@user.instagram_url), target: :blank do
         %i.icon.icon-instagram-tiny
-      = link_to '#' do
+      = link_to url_with_protocol(@user.youtube_url), target: :blank do
         %i.icon.icon-youtube-tiny
-      = link_to '#' do
+      = link_to url_with_protocol(@user.soundcloud_url), target: :blank do
         %i.icon.icon-soundcloud-tiny
 
 .infinite-songs
