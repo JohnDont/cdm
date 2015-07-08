@@ -8,9 +8,13 @@
     margin-bottom: 40px;
 
     .iframe {
+      @extend .music-item-header;
       width: 100%;
       height: 400px;
 
+      .overlay {
+        padding-top: 168px;
+      }
     }
 
     header.header {
