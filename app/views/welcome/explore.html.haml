@@ -3,8 +3,8 @@
 .row
   .col-xs-12
     .music-charts
-      = link_to "Latest Music", explore_category_path(param_category, reload: true), remote: false,  class: "cdm-btn latest #{params[:top] ? '' : 'active'}"
-      = link_to "Top Charts", explore_category_path(param_category, reload: true, top: true), remote: false, class: "cdm-btn top #{params[:top] ? 'active' : ''}"
+      = link_to "Latest Music", explore_category_path(param_category, params.slice(:for_challenge).merge({reload: true})), remote: false,  class: "cdm-btn latest #{params[:top] ? '' : 'active'}"
+      = link_to "Top Charts", explore_category_path(param_category, params.slice(:for_challenge).merge({reload: true, top: true})), remote: false, class: "cdm-btn top #{params[:top] ? 'active' : ''}"
     - if params[:top]
       .holder-sort-by
         = link_to '#', class: 'sort-menu' do
