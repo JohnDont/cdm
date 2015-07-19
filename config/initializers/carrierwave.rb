@@ -5,7 +5,7 @@ CarrierWave.configure do |config|
 
     config.fog_credentials = {
       :provider           => 'Rackspace',
-      :rackspace_username => 'cdmgeneration2',
+      :rackspace_username => 'cdmgenration2',
       :rackspace_api_key  => '3e3366ecd4174e768223f1e8a4896bdb',
       :rackspace_region   => 'dfw'
     }
