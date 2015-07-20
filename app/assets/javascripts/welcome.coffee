@@ -18,6 +18,7 @@ $(document).ready ->
 
   doc.on 'click', '#player a.close-player', ->
     $('#player').fadeOut()
+    $("article.music-item#song-item-" + $(this).data('song-id') + " .overlay").removeClass "active"
     setTimeout (->
       $('#player').html ''
       return

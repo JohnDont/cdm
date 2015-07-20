@@ -41,6 +41,10 @@
       }
     }
   }
+
+  #player .song-info {
+    display: none;
+  }
 }
 
 // max: 480px
@@ -109,6 +113,12 @@
     width: auto;
     padding: 0 70px;
   }
+
+  #player {
+    .iframe iframe{
+      height: 200px;
+    }
+  }
 }
 
 @media (max-width: 600px) {
@@ -137,6 +147,25 @@
   }
 }
 
+@media (max-width: 850px) {
+  #player {
+    display: block;
+    width: 60%;
+    .iframe {
+      float: none;
+      width: 100%;
+      iframe {
+        width: 100%;
+      }
+    }
+    .song-info {
+      float: none;
+      width: 100%;
+      background-color: #fff;
+      margin-top: -5px;
+    }
+  }
+}
 
 // max: 991px
 @media (max-width: $screen-sm-max) {

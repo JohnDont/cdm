@@ -6,6 +6,7 @@ setTimeout (->
   $('#player').fadeIn()
 ), 500
 
+$("article.music-item#song-item-<%= @song.id %> .overlay").addClass "active"
 $("article.music-item#song-item-<%= @song.id %> .plays").html "<%= @song.plays_count %>"
 
 <% else %>
