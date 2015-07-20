@@ -119,6 +119,29 @@
       height: 200px;
     }
   }
+
+  .modal {
+    width: 90%;
+    margin: 0 auto;
+
+    .modal-dialog {
+      width: 100%;
+    }
+  }
+
+  .holder-devise-form form, .holder-upload-form form, .holder-share form {
+    width: 100% !important;
+    margin: 0 !important;
+
+    &#new_song {
+      .form-actions {
+        margin-top: 50px;
+        .song_for_challenge {
+          top: -43px;
+        }
+      }
+    }
+  }
 }
 
 @media (max-width: 600px) {
