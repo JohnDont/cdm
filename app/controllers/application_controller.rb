@@ -11,6 +11,6 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up).concat [:full_name, :username, :gender]
     devise_parameter_sanitizer.for(:account_update).concat [
       :full_name, :username, :gender, :website, :facebook_url, :twitter_url,
-      :instagram_url, :youtube_url, :soundcloud_url]
+      :instagram_url, :youtube_url, :soundcloud_url, :avatar, :avatar_cache]
   end
 end

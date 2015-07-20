@@ -4,7 +4,7 @@
 
 
 .holder-devise-form
-  = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+  = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, novalidate1: false }) do |f|
     %h2.text-center Edit your profile
     = f.error_notification
 
@@ -14,12 +14,18 @@
       = f.input :email, required: true, autofocus: true
       = f.input :full_name, required: true
       = f.input :username
-      = f.input :website, as: :url
-      = f.input :facebook_url, as: :url
-      = f.input :twitter_url, as: :url
-      = f.input :instagram_url, as: :url
-      = f.input :youtube_url, as: :url
-      = f.input :soundcloud_url, as: :url
+      .holder-avatar
+        = image_tag @user.avatar.thumb if @user.avatar?
+        = f.input :avatar
+        = f.input :avatar_cache
+
+      = f.input :website
+      = f.input :facebook_url
+      = f.input :twitter_url
+      = f.input :instagram_url
+      = f.input :youtube_url
+      = f.input :soundcloud_url
+
 
 
       - if devise_mapping.confirmable? && resource.pending_reconfirmation?
