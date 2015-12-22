@@ -15,6 +15,6 @@ test:
 production:
   <<: *default
   database: cdm_production
-  username: production
-  password: bs36613hVxUgA20i
+  username: root
+  password: root
 
